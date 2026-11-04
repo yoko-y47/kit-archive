@@ -1,0 +1,11 @@
+{
+  "name": "kit-archive",
+  "private": true,
+  "description": "Kit Archive：3D 展示のコア（packages/core）と単体版ビューア（apps/viewer）",
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "dev": "npm run dev -w apps/viewer",
+    "build": "npm run build -w apps/viewer",
+    "build:artifact": "npm run build:artifact -w apps/viewer"
+  }
+}

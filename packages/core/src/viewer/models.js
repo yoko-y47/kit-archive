@@ -1,8 +1,8 @@
 // GLB の読み込み：パスごとに1回だけ読み、肩の形の測定とハンガーの形もそのとき1回だけ作る
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { isStoredUrl } from '../kit-storage.js';
-import { state } from './context.js';
+import { isStoredUrl } from '../data/sources/kit-storage.js';
+import { ctx, state } from './context.js';
 import { fitHanger, buildHanger, HANGER_BAR_GEO, HOOK_END_GEO } from './hanger.js';
 
 export async function fetchModel(url) {
@@ -18,8 +18,9 @@ export async function fetchModel(url) {
   for (let k = 0; k < bin.length; k++) buf[k] = bin.charCodeAt(k);
   return buf.buffer;
 }
-// アーティファクトでは GLB を配信できないため、同じ名前の base64 テキスト（*.glb.b64.txt）をページと同じ場所から先に試す
-const modelUrls = path => isStoredUrl(path) ? [path] : [path.split('/').pop() + '.b64.txt', path];
+// 試す URL はアプリが決める（options.resolveModelUrls）。保存先に入れた GLB（idb: / asset:）はそのまま
+// 例：アーティファクトでは GLB を配信できないため、同じ名前の base64 テキスト（*.glb.b64.txt）を返す
+const modelUrls = path => isStoredUrl(path) ? [path] : ctx.options.resolveModelUrls(path);
 export const modelCache = new Map();   // GLB のパス → Promise<モデル>（同じ GLB は二度読まない）
 export function loadModelRecord(path) {
   if (!modelCache.has(path)) modelCache.set(path, (async () => {

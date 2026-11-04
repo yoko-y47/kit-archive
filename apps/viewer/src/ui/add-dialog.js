@@ -3,15 +3,11 @@
 // 1. 追加画面を開くと標準の GLB を展示と同じ処理で読み込み、別の小さな 3D 表示でプレビューする。PNG を選ぶとそれを貼って見せる
 //    （プレビューは展示とは別のシーン・カメラ・描画。追加画面を開いている間、展示の選択・視点・揺れはそのまま止めずに残る）
 // 2. 登録すると、PNG を保存先に保存 → データを保存 → 成功したら展示に加える（並び順・レールはストアの通知で計算し直す）
-import { CATEGORIES, findSameSlot, newKitId } from '../kit-data.js';
-import { describeStorageError, MAX_TEXTURE_BYTES } from '../kit-storage.js';
-import { state } from '../core/context.js';
-import { loadModelRecord } from '../core/models.js';
-import { prepTexture, texLoader, texCache } from '../core/kits.js';
+import { CATEGORIES, findSameSlot, newKitId, describeStorageError, MAX_TEXTURE_BYTES, state, loadModelRecord, prepTexture, texLoader, texCache } from 'kit-archive-core';
 import { startPreview, stopPreview, showPreviewModel, setPreviewMsg, setPreviewTexture, pv } from './preview.js';
 import { $, escapeHtml, fmtMB, setFieldError, showNotice, wireDrop, checkSeason, setStatus } from './util.js';
 
-const STANDARD_MODEL = { hanging: '../export/kit_hanging.glb', worn: '../export/kit_base.glb' };
+const STANDARD_MODEL = { hanging: 'models/kit_hanging.glb', worn: 'models/kit_base.glb' };
 const addBtn = document.getElementById('addBtn'), addDialog = document.getElementById('addDialog'), addForm = document.getElementById('addForm');
 const fSeason = $('fSeason'), fTypes = $('fTypes'), texDrop = $('texDrop'), texFile = $('texFile');
 const addSubmit = $('addSubmit'), addWarn = $('addWarn'), addError = $('addError');

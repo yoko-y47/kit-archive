@@ -1,7 +1,7 @@
 // 展示ラック（ハンガーバー1本）・床・霞と、掛ける位置（rack-layout.js の計算結果を使う）
 import * as THREE from 'three';
-import { RAIL, computeRackLayout, railTopY } from '../rack-layout.js';
-import { ctx, items, state, emit } from './context.js';
+import { RAIL, computeRackLayout, railTopY } from '../data/rack-layout.js';
+import { ctx, items, state, emit, listen, track } from './context.js';
 import { TARGET, view } from './view.js';
 import { snapHome } from './display-items.js';
 
@@ -24,8 +24,8 @@ export function initRack() {
   // 空間の霞（背景と同じ色）。奥ほど背景に溶ける。距離はカメラに合わせて毎フレーム調整する（updateFog）
   ctx.scene.fog = new THREE.Fog(0xffffff, 10, 30);
   syncFloor();
-  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncFloor);
-  new MutationObserver(syncFloor).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  listen(matchMedia('(prefers-color-scheme: dark)'), 'change', syncFloor);
+  const mo = new MutationObserver(syncFloor); mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] }); track(() => mo.disconnect());
   state.rackLayout = computeRackLayout([]);
 }
 export function updateFog() {

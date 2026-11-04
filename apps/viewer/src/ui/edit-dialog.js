@@ -1,9 +1,7 @@
 // ---- シーズン・種別の編集（選択中のユニフォーム） ----
 // 仮データ（kits.json）は書き換えず、変えた項目だけを保存先に「上書き」として保存する（kit-data.js の KitStore.update）
 // 追加したユニフォームは、そのデータを書き換える。名前が自動で付けたもの（「シーズン 種別」）なら付け直す
-import { CATEGORIES, findSameSlot } from '../kit-data.js';
-import { describeStorageError } from '../kit-storage.js';
-import { state } from '../core/context.js';
+import { CATEGORIES, findSameSlot, describeStorageError, state } from 'kit-archive-core';
 import { $, escapeHtml, setFieldError, showNotice, checkSeason, setStatus } from './util.js';
 
 const editBtn = $('editBtn'), editDialog = $('editDialog'), editForm = $('editForm');

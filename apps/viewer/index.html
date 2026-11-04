@@ -1,3 +1,7 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta charset="utf-8">
 <title>Kit Archive Viewer</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -32,6 +36,10 @@
   }
   * { box-sizing: border-box; }
   html, body { height: 100%; }
+  /* claude.ai の公開ページが入れる基本の設定と同じもの（単体版でも同じ見た目にする） */
+  body { margin: 0; }
+  [hidden] { display: none !important; }
+  img { max-width: 100%; }
   body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 14px; line-height: 1.5; }
   #app {
     display: flex; gap: 16px; height: 100%;
@@ -146,6 +154,8 @@
     aside { width: 100%; flex: 1; }
   }
 </style>
+</head>
+<body>
 
 <div id="app">
   <div id="stage">
@@ -282,10 +292,6 @@
   </form>
 </dialog>
 
-<script type="importmap">
-{ "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-} }
-</script>
-<script type="module" src="main.js"></script>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

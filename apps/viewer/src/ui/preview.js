@@ -1,8 +1,7 @@
 // 追加画面のプレビュー：展示とは別のシーン・カメラ・描画で、標準の GLB に選んだ PNG を貼って見せる
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { ctx, state, css } from '../core/context.js';
-import { showShortSleeves } from '../core/models.js';
+import { ctx, state, css, showShortSleeves } from 'kit-archive-core';
 import { $ } from './util.js';
 
 export const pv = { renderer: null, scene: null, camera: null, controls: null, obj: null, materials: [], tex: null };

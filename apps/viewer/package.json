@@ -1,0 +1,20 @@
+{
+  "name": "kit-archive-viewer",
+  "version": "0.1.0",
+  "description": "Kit Archive の単体版ビューア（ハンガーバー展示・追加・編集）",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:artifact": "vite build --mode artifact --outDir dist-artifact --emptyOutDir && node scripts/build-artifact.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "kit-archive-core": "*",
+    "three": "0.160.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.5"
+  }
+}

@@ -269,3 +269,10 @@ export function shake() {
 export function toggleWind() { sim.wind = !sim.wind; return sim.wind; }
 // 「布の揺れを計算する」
 export function setPhysics(on) { sim.on = on; scheduleRebuild(); }
+// 片付け（destroyViewer）：揺れ・風・作り直しの予約を最初の状態に戻す
+export function resetSim() {
+  rebuildPending = false; simTime = 0;
+  Object.assign(sim, { on: true, wind: false });
+  Object.assign(swing, { ax: 0, az: 0, vx: 0, vz: 0 });
+  Object.assign(spin, { w: 0, a: 0, az: null });
+}

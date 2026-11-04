@@ -44,33 +44,40 @@ setCollar(2);
 ```
 
 ## 確認用ビューア
-`viewer/index.html`（公開版: https://claude.ai/artifact/D8JNknu2FdYJYMycPfdX8K ）
-アーティファクトは GLB を配信できないため、`viewer/kit_base.glb.b64.txt`（GLB を base64 化したもの）を同梱しています。GLB を作り直したら、次のコマンドで作り直してから再公開してください。
-`base64 -i export/kit_base.glb | tr -d '\n' > viewer/kit_base.glb.b64.txt`
-`base64 -i export/kit_hanging.glb | tr -d '\n' > viewer/kit_hanging.glb.b64.txt`
+公開版: https://claude.ai/artifact/D8JNknu2FdYJYMycPfdX8K
+
+### 構成とビルド（Phase 2）
+npm workspaces。ルートで `npm install` のあと：
+- `npm run dev`：単体版を開発用サーバーで開く（apps/viewer）
+- `npm run build`：単体版を `apps/viewer/dist/` に書き出す（GitHub Pages などにそのまま置ける。`base: './'`）
+- `npm run build:artifact`：claude.ai 公開用を `apps/viewer/dist-artifact/` に書き出す。GLB は配信できないため `models/*.glb.b64.txt` に置き換え、ページの骨組み（doctype〜body）を外す（`apps/viewer/scripts/build-artifact.mjs`）。公開は `dist-artifact/index.html` をページ、`assets/*.js`・`kits.json`・`models/*.b64.txt` を同じ相対パスのファイルとして載せる
+- GLB を作り直したら `export/*.glb` を `apps/viewer/public/models/` にコピーしてからビルドする
+
+- `packages/core`（`kit-archive-core`）：3D 展示とデータ管理。ビルド不要の ES モジュールで、`three`（0.160.0）は使う側が入れる
+  - 入口 `src/index.js`：`createKitArchive(要素, { store, resolveModelUrls, background })` → `{ select(id), deselect, flip, setView, setOrbit, setShape, setCollar, setHangerVisible, setAxesVisible, setAutoRotate, setTexture, shake, toggleWind, setPhysics, setUserSource, on(種類, fn), destroy }`
+    - `store`：`KitStore`（必須）。`resolveModelUrls(path)`：GLB の参照先 → 試す URL の配列（既定はそのまま）。`background()`：背景色（既定は CSS 変数 `--stage`）
+    - 3D 展示は1ページに同時に1つ。`destroy()` で描画ループ・イベントの登録・通知・読み込んだモデルを片付け、canvas を外す（React の画面から外すときなど）。そのあと作り直せる
+    - 通知（`on`）：'hint'（操作の案内）'panel'（襟・情報欄）'info'（情報欄）'load'（読み込み状況）'shape' 'orbit'
+  - データ管理（3D に依存しない）も同じ入口から使える：`KitStore`・`JsonFileSource`・`compareKits`・`computeRackLayout`・保存先（`IndexedDbSource` / `ClaudeArtifactSource` / `openUserSource`）など
+  - `src/data/kit-data.js`：データ構造の正規化・検証・並び順と、`KitStore`（追加・更新・削除と変更通知）。保存先（source）は差し替え式。データベースにつなぐときは同じ形の source を作って渡す。接続情報はコードに書かない
+  - `src/data/rack-layout.js`：配置計算。並べ替え済みの配列から、各ユニフォームの位置・レールの範囲・視点を返す `computeRackLayout`
+  - `src/data/sources/kit-storage.js`：追加分の保存先（IndexedDB / claude.ai）
+  - `src/viewer/`（Phase 1 で index.html から切り出した 3D 展示。DOM は表示先の要素だけを使い、画面への反映は通知で行う）
+    - `context.js`：共有するもの（描画・シーン・カメラ・操作の `ctx`、展示中の `items`、選択などの `state`）と通知
+    - `viewer.js`：描画・光・カメラを作り、ラック・入力・描画ループを始める（`initViewer` / `destroyViewer`）
+    - `view.js`：視点（正面・斜め・横・背面、回転の向き）。`rack.js`：ハンガーバー・床・霞と、掛ける位置
+    - `display-items.js`：展示アイテムの位置・向き・大きさ、選択・前後の切り替え・ラックへ戻る動き
+    - `kits.js`：データ1件と展示アイテムの対応（モデルの付け替え・テクスチャ・色・襟・形状）と、ストアの変更通知の受け取り
+    - `models.js`：GLB の読み込み（パスごとに1回）。`hanger.js`：ハンガーの形。`cloth.js`：布の揺れ。`input.js`：クリックとドラッグ
+- `apps/viewer`（単体版ビューア）：`index.html`（HTML と CSS）、`src/main.js`（組み立て）、`src/ui/`（`panel.js` 操作パネル・情報欄、`add-dialog.js` と `preview.js` 追加画面、`edit-dialog.js` 編集画面、`util.js`）、`public/`（`kits.json`、`models/*.glb`）
+  - GLB の参照先はファイル名で `public/models/` のものに読み替える（`src/main.js` の `resolveModelUrls`）。以前のデータの `../export/kit_hanging.glb` もそのまま読める
 
 ### ハンガーバーと複数ユニフォーム（Phase 4）
-- ファイルの分担（Phase 5）
-  - `viewer/kit-data.js`：データ管理層（3D に依存しない）。データ構造の正規化・検証・並び順と、`KitStore`（追加・更新・削除と変更通知）。保存先（source）は差し替え式で、今は `JsonFileSource('kits.json')`（読み取り専用）。データベースにつなぐときは同じ形の source（`load()` / `save(kits)`、`writable: true`）を作って渡す。接続情報はコードに書かない
-  - `viewer/rack-layout.js`：配置計算（3D に依存しない）。並べ替え済みの配列から、各ユニフォームの位置・レールの範囲・視点を返す `computeRackLayout`
-  - `viewer/index.html`：画面の HTML と CSS だけ。スクリプトは `main.js` を読み込む
-  - `viewer/main.js`：組み立て。ストア・3D 展示（core）・画面（ui）をつないで読み込みを始める
-- 3D 展示（`viewer/core/`。Phase 1 で index.html から切り出した。DOM は表示先の要素だけを使い、画面への反映は通知で行う）
-  - `context.js`：共有するもの（描画・シーン・カメラ・操作の `ctx`、展示中の `items`、選択などの `state`）と通知（`on` / `emit`：'hint' 'panel' 'info' 'load' 'shape' 'orbit'）
-  - `viewer.js`：入口 `initViewer(要素)`。描画・光・カメラを作り、ラック・入力・描画ループを始める
-  - `view.js`：視点（正面・斜め・横・背面、回転の向き）
-  - `rack.js`：ハンガーバー・床・霞と、掛ける位置（`relayout` / `placeOnRack`）
-  - `display-items.js`：展示アイテムの位置・向き・大きさ、選択・前後の切り替え・ラックへ戻る動き
-  - `kits.js`：データ1件と展示アイテムの対応（モデルの付け替え・テクスチャ・色・襟・形状）と、ストアの変更通知の受け取り（`connectStore`）
-  - `models.js`：GLB の読み込み（パスごとに1回）。`hanger.js`：ハンガーの形
-  - `cloth.js`：布の揺れ。`input.js`：クリックとドラッグ
-- 画面（`viewer/ui/`）：`panel.js`（操作パネル・情報欄）、`add-dialog.js` と `preview.js`（追加画面）、`edit-dialog.js`（編集画面）、`util.js`
-- claude.ai へ公開するときは、`index.html` に加えて `main.js`・`core/*.js`・`ui/*.js`・`kit-data.js`・`kit-storage.js`・`rack-layout.js`・`kits.json`・`*.glb.b64.txt` を同じ相対パスで載せる
 - 1着分のデータ（`kits.json` の `kits[]`、schemaVersion 3）
   - `id`（必須・一意）、`season`（"2026-27" など。未設定は null）、`seasonStartYear`（数値。省略時は season の最初の4桁）、`name`、`type`（Home / Away / Third / Cup / GK。未設定は null）、`variant`（任意）、`modelUrl`（必須。GLB の参照先）、`thumbnailUrl`（任意）、`hanger`（`{ visible }`）
   - 任意：`variantOrder`、`modelUrlWorn`（着用形の GLB）、`display`（`collar` / `color` / `texture` / `scale`）、`placeholder`（仮データ）、`sortHint`、`createdAt` / `updatedAt`
   - 旧形式（`glb` / `glbWorn` / `seasonStart` / 直下の `collar` / `color`）も読める
-  - 公開版では GLB を配信できないため、`modelUrl` と同じファイル名の `*.glb.b64.txt` をページと同じ場所から先に読み、なければ `modelUrl` を読む
+  - 公開版（claude.ai）では GLB を配信できないため、`models/` の同じファイル名の `*.glb.b64.txt` を読む
 - 並び順（登録順には依存しない。`compareKits`）。手前から：
   1. `seasonStartYear` が新しい順（数値で比較。未設定は一番奥）
   2. 同じシーズン内は Home(0) → Away(1) → Third(2) → Cup(3) → GK(4)（固定値 `CATEGORY_ORDER`。未設定・一覧外は一番奥）
@@ -98,7 +105,7 @@ setCollar(2);
 - 名前は自動で「シーズン 種別」（例 `2026-27 Home`）。同じシーズン・種別がすでにあると警告を出し、もう一度押すと「`2026-27 Home (2)`」として登録する（重複は許可）
 - 追加画面を開くと標準の GLB を展示と同じ処理で読み込み、別の小さな 3D 表示でプレビューする。PNG を選ぶとそれを貼って見せる（展示の選択・視点には触れない）
 - ID は `kit-<開始年>-<種別>-<乱数8桁>`。登録後はストアの通知で並べ直し、レールの長さ・位置を計算し直す（選択中のユニフォームはそのまま）
-- 保存先（`viewer/kit-storage.js`）。保存するファイルはキット画像だけ（GLB は保存しない）
+- 保存先（`packages/core/src/data/sources/kit-storage.js`）。保存するファイルはキット画像だけ（GLB は保存しない）
   - claude.ai で開いたとき：アーティファクトの db（`kits/<id>`）と assets（`asset:<id>`）。書き込めるのは編集権限のある人だけ
   - それ以外（ローカル・サインインしていない表示）：このブラウザの IndexedDB `kit-archive`（`kits` と `files`、`idb:<id>`）。その端末・そのブラウザだけ
   - 順番は「画像 → データ」。データの保存に失敗したら、保存済みの画像を消して展示には加えない

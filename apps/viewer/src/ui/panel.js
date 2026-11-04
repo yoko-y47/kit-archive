@@ -1,11 +1,6 @@
 // 操作パネル：形状・襟・動き・視点・テクスチャ差し替えのボタンと、操作の案内・情報欄
 // core からの通知（'hint' 'panel' 'info' 'load' 'shape' 'orbit'）を受けて表示を合わせる
-import { ctx, items, state, on } from '../core/context.js';
-import { setView, setOrbit } from '../core/view.js';
-import { deselectItem } from '../core/display-items.js';
-import { setCollar, setShape, applyHangerVisibility, prepTexture, texLoader, resolveImageUrl, setTextureForTargets } from '../core/kits.js';
-import { modelCache } from '../core/models.js';
-import { sim, shake, toggleWind, setPhysics } from '../core/cloth.js';
+import { ctx, items, state, on, setView, setOrbit, deselectItem, setCollar, setShape, applyHangerVisibility, prepTexture, texLoader, resolveImageUrl, setTextureForTargets, modelCache, sim, shake, toggleWind, setPhysics } from 'kit-archive-core';
 import { escapeHtml, setStatus } from './util.js';
 
 // collar_mapping.json の目視による推定名

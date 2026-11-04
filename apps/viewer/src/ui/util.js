@@ -1,5 +1,5 @@
 // 画面（ui/）で共通に使う小さな関数
-import { parseSeasonStartYear } from '../kit-data.js';
+import { parseSeasonStartYear } from 'kit-archive-core';
 
 export const statusEl = document.getElementById('status');
 export const setStatus = text => { statusEl.textContent = text; };

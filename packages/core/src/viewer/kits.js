@@ -2,8 +2,8 @@
 // kits.json の1件 → 展示アイテム1つ。GLB はパスごとに1回だけ読み込み、各アイテムはその複製を使う
 // （形状・ハンガーの形状は全アイテムで共有。色を変えるマテリアルだけアイテムごとに複製）
 import * as THREE from 'three';
-import { isStoredUrl } from '../kit-storage.js';
-import { ctx, items, state, emit } from './context.js';
+import { isStoredUrl } from '../data/sources/kit-storage.js';
+import { ctx, items, state, emit, track } from './context.js';
 import { loadModelRecord, showShortSleeves } from './models.js';
 import { createDisplayItem, deselectItem } from './display-items.js';
 import { relayout, placeOnRack } from './rack.js';
@@ -102,7 +102,7 @@ export function removeKitItem(item) {
 const itemOf = id => items.find(i => i.data.id === id);
 // ストアの変更通知を受けて、3D 表示を合わせる（main.js から1回だけ）
 export function connectStore(store) {
-  store.subscribe(({ type, kit, kits, added }) => {
+  track(store.subscribe(({ type, kit, kits, added }) => {
     if (type === 'reset') {
       for (const it of [...items]) removeKitItem(it);
       kits.forEach(createKitItem);
@@ -123,7 +123,7 @@ export function connectStore(store) {
     // 新しく作ったアイテムは、手前から順にモデルを読み込む（同じ GLB は1回だけ取得される）
     for (const it of [...items].filter(i => !i.kit && !i.loadingModel).sort((a, b) => a.frontIndex - b.frontIndex)) setItemShape(it, state.shape);
     if (type !== 'reset') emit('panel');
-  });
+  }));
 }
 // ハンガーは、画面の「ハンガーを表示」とデータの hanger.visible の両方が有効なときに表示する
 export function applyHangerVisibility(it) { if (it.hangerPivot) it.hangerPivot.visible = state.showHanger && it.data.hanger.visible; it.worldBox = null; }

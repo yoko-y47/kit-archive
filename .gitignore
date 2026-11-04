@@ -8,3 +8,7 @@
 # ローカル確認用の設定・一時ファイル
 .claude/
 node_modules/
+
+# npm / Vite
+dist/
+dist-artifact/

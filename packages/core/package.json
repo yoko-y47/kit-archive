@@ -1,0 +1,10 @@
+{
+  "name": "kit-archive-core",
+  "version": "0.1.0",
+  "description": "Kit Archive の 3D 展示（ハンガーバー・布の揺れ）とユニフォームのデータ管理",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.js" },
+  "files": ["src"],
+  "peerDependencies": { "three": "0.160.0" }
+}

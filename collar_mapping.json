@@ -1,0 +1,710 @@
+{
+  "_meta": {
+    "source_file": "/Users/yokooyuuhei/Desktop/nike2223.blend",
+    "analyzed_on": "2026-11-03",
+    "summary_ja": "13種類すべての襟の構成オブジェクトを特定。9種は単一オブジェクト（collarsコレクション直下）、4種（3,4,12,13）は同名サブコレクション内の2オブジェクト構成。",
+    "identification_basis": [
+      "コレクション構造（collars直下オブジェクト / collar_N サブコレクション）",
+      "オブジェクト名 collar_N",
+      "全襟パーツの首元フィラーがシャツ首穴の境界ループ(40頂点)と完全一致",
+      "バウンディングボックス・頂点近接解析",
+      "Workbenchレンダリングによる目視確認（previews/collars_front_sheet.png）"
+    ],
+    "unconfirmed_items": [
+      "各襟のデザイン上の正式名称（style_* は目視による推定）",
+      "襟番号1〜13がウイニングイレブン（PES）側の襟IDと一致するか",
+      "collar_3 と collar_4 の形状がほぼ同一である理由（差分は前立て付近のみ）",
+      "Mesh_00xx というオブジェクト名と襟番号の対応関係に命名上の規則性はない（コレクションで判断）"
+    ],
+    "web_blend_note_ja": "nike2223_web.blend では全13襟の親オブジェクト名が collar_1〜collar_13 に統一済み（2パーツ襟は片方を親にして子付け）。GLBでも collar_N がルートノードとなり、collar_N.visible の切り替えだけで子パーツごと表示/非表示できる。"
+  },
+  "switching_rules": {
+    "exclusive": "常に13種のうち1つだけを表示すること。シャツ本体の首周りは大きく開いており（z=1.374〜1.548m）、襟の首元フィラーが穴を塞ぐ構造のため、襟ゼロだと首元に穴が開く（previews/collar_none_front.png）。",
+    "switch_unit": "襟IDに属する全オブジェクト（parts）を同時に表示/非表示する",
+    "blender_current_mechanism": "単一オブジェクト襟は目のアイコン(hide_set)で、複数オブジェクト襟はサブコレクションのView Layer非表示(layer_collection.hide_viewport)で切替えている。hide_renderは全てFalseのため、F12レンダーでは全襟が重なって表示される。",
+    "gltf_note": "GLBにはコレクション階層も非表示状態も出力されない（全28ノードがフラットに出力）。Three.js側で collar_id→ノード名 の対応表（本ファイル）を使ってvisibleを切り替える必要がある。",
+    "threejs_name_sanitize_note": "Three.js GLTFLoader はノード名の \".\" を除去する（例: Mesh_0049.001 → Mesh_0049001）。Phase 2 で \".\" を含まない名前に改名することを推奨。"
+  },
+  "interference_check": {
+    "collar_vs_shirt": "全襟パーツの下端境界ループはシャツ(shirt_out/shirt_inside)の首穴境界ループ(40頂点)と同一座標で接続。シャツ表面に重なる面は無く（シャツ頂点の3.5%＝首穴リングのみが近接）、Zファイティングの懸念は低い。",
+    "collar_vs_sleeves": "近接なし（3mm以内の頂点 0%）",
+    "collar_vs_head": "近接なし（最短5.4cm）。headはシーン外",
+    "collar_vs_collar": "全襟が同じ空間を占有するため、2つ以上同時表示すると重なる",
+    "with_long_sleeves": "襟は肩より内側にあり長袖パーツとも干渉なし（3mm以内 0%）"
+  },
+  "collars": [
+    {
+      "collar_id": 1,
+      "status": "confirmed",
+      "identified_by": "object",
+      "blender_object_names": [
+        "collar_1"
+      ],
+      "blender_collection": "collars",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "parts": [
+        {
+          "object": "collar_1",
+          "part_role": "neck_panel + collar_band (1オブジェクトに首元フィラーと襟本体の2アイランド)",
+          "vertices": 492,
+          "triangles": 830,
+          "face_islands": 2,
+          "has_cloth_modifier": true,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": true,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": false
+          }
+        }
+      ],
+      "total_triangles": 830,
+      "style_visual_estimate": "crew_neck",
+      "style_description_ja": "ラウンド（クルー）ネック。内側に見返し状のパーツ",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": null,
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_1",
+        "child_nodes": []
+      }
+    },
+    {
+      "collar_id": 2,
+      "status": "confirmed",
+      "identified_by": "object",
+      "blender_object_names": [
+        "collar_2"
+      ],
+      "blender_collection": "collars",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "parts": [
+        {
+          "object": "collar_2",
+          "part_role": "neck_panel + collar_band (1オブジェクトに首元フィラーと襟本体の2アイランド)",
+          "vertices": 486,
+          "triangles": 818,
+          "face_islands": 2,
+          "has_cloth_modifier": true,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": false,
+            "hide_render": false,
+            "visible_get": true,
+            "parent_layer_collection_hidden": false
+          }
+        }
+      ],
+      "total_triangles": 818,
+      "style_visual_estimate": "v_neck",
+      "style_description_ja": "Vネック",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": null,
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_2",
+        "child_nodes": []
+      }
+    },
+    {
+      "collar_id": 3,
+      "status": "confirmed",
+      "identified_by": "collection",
+      "blender_object_names": [
+        "Mesh_0047",
+        "Mesh_0049"
+      ],
+      "blender_collection": "collar_3",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_3"
+      ],
+      "parts": [
+        {
+          "object": "Mesh_0047",
+          "part_role": "neck_panel (首元フィラー: シャツの首穴を塞ぐ面)",
+          "vertices": 155,
+          "triangles": 226,
+          "face_islands": 1,
+          "has_cloth_modifier": true,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": false,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": true
+          }
+        },
+        {
+          "object": "Mesh_0049",
+          "part_role": "collar_band (襟本体＋ボタン等の小パーツ多数: 52アイランド)",
+          "vertices": 699,
+          "triangles": 984,
+          "face_islands": 52,
+          "has_cloth_modifier": true,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": false,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": true
+          }
+        }
+      ],
+      "total_triangles": 1210,
+      "style_visual_estimate": "shirt_collar",
+      "style_description_ja": "折り襟（シャツカラー/ポロ襟系）",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": null,
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_3",
+        "child_nodes": [
+          "Mesh_0049"
+        ]
+      }
+    },
+    {
+      "collar_id": 4,
+      "status": "confirmed",
+      "identified_by": "collection",
+      "blender_object_names": [
+        "collar_4",
+        "Mesh_0045"
+      ],
+      "blender_collection": "collar_4",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_4"
+      ],
+      "parts": [
+        {
+          "object": "collar_4",
+          "part_role": "neck_panel (首元フィラー)",
+          "vertices": 150,
+          "triangles": 216,
+          "face_islands": 1,
+          "has_cloth_modifier": false,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": false,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": true
+          }
+        },
+        {
+          "object": "Mesh_0045",
+          "part_role": "collar_band (襟本体＋小パーツ多数: 51アイランド)",
+          "vertices": 697,
+          "triangles": 984,
+          "face_islands": 51,
+          "has_cloth_modifier": false,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": false,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": true
+          }
+        }
+      ],
+      "total_triangles": 1200,
+      "style_visual_estimate": "shirt_collar_with_placket",
+      "style_description_ja": "折り襟＋前立て。collar_3とほぼ同一形状（前立て付近のみ差分）",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": "このキットのテクスチャ(KSL_a003)では前立て/襟部分のUV領域が未塗装で暗色表示になる",
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_4",
+        "child_nodes": [
+          "Mesh_0045"
+        ]
+      }
+    },
+    {
+      "collar_id": 5,
+      "status": "confirmed",
+      "identified_by": "object",
+      "blender_object_names": [
+        "collar_5"
+      ],
+      "blender_collection": "collars",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "parts": [
+        {
+          "object": "collar_5",
+          "part_role": "neck_panel + collar_band (1オブジェクトに首元フィラーと襟本体の2アイランド)",
+          "vertices": 492,
+          "triangles": 830,
+          "face_islands": 2,
+          "has_cloth_modifier": true,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": true,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": false
+          }
+        }
+      ],
+      "total_triangles": 830,
+      "style_visual_estimate": "crew_neck",
+      "style_description_ja": "ラウンド（クルー）ネック（collar_1系より襟高がやや高い）",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": null,
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_5",
+        "child_nodes": []
+      }
+    },
+    {
+      "collar_id": 6,
+      "status": "confirmed",
+      "identified_by": "object",
+      "blender_object_names": [
+        "collar_6"
+      ],
+      "blender_collection": "collars",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "parts": [
+        {
+          "object": "collar_6",
+          "part_role": "neck_panel + collar_band (1オブジェクトに首元フィラーと襟本体の2アイランド)",
+          "vertices": 486,
+          "triangles": 818,
+          "face_islands": 2,
+          "has_cloth_modifier": true,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": true,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": false
+          }
+        }
+      ],
+      "total_triangles": 818,
+      "style_visual_estimate": "v_neck",
+      "style_description_ja": "Vネック（collar_2系より襟高がやや高い）",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": null,
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_6",
+        "child_nodes": []
+      }
+    },
+    {
+      "collar_id": 7,
+      "status": "confirmed",
+      "identified_by": "object",
+      "blender_object_names": [
+        "collar_7"
+      ],
+      "blender_collection": "collars",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "parts": [
+        {
+          "object": "collar_7",
+          "part_role": "neck_panel + collar_band (1オブジェクトに首元フィラーと襟本体の2アイランド)",
+          "vertices": 500,
+          "triangles": 846,
+          "face_islands": 2,
+          "has_cloth_modifier": true,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": true,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": false
+          }
+        }
+      ],
+      "total_triangles": 846,
+      "style_visual_estimate": "crew_neck",
+      "style_description_ja": "ラウンド（クルー）ネック",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": null,
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_7",
+        "child_nodes": []
+      }
+    },
+    {
+      "collar_id": 8,
+      "status": "confirmed",
+      "identified_by": "object",
+      "blender_object_names": [
+        "collar_8"
+      ],
+      "blender_collection": "collars",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "parts": [
+        {
+          "object": "collar_8",
+          "part_role": "neck_panel + collar_band (1オブジェクトに首元フィラーと襟本体の2アイランド)",
+          "vertices": 467,
+          "triangles": 778,
+          "face_islands": 2,
+          "has_cloth_modifier": true,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": true,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": false
+          }
+        }
+      ],
+      "total_triangles": 778,
+      "style_visual_estimate": "crew_neck",
+      "style_description_ja": "ラウンド（クルー）ネック（内側見返しあり）",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": null,
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_8",
+        "child_nodes": []
+      }
+    },
+    {
+      "collar_id": 9,
+      "status": "confirmed",
+      "identified_by": "object",
+      "blender_object_names": [
+        "collar_9"
+      ],
+      "blender_collection": "collars",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "parts": [
+        {
+          "object": "collar_9",
+          "part_role": "neck_panel + collar_band (1オブジェクトに首元フィラーと襟本体の2アイランド)",
+          "vertices": 522,
+          "triangles": 856,
+          "face_islands": 2,
+          "has_cloth_modifier": false,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": true,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": false
+          }
+        }
+      ],
+      "total_triangles": 856,
+      "style_visual_estimate": "crew_neck_with_placket",
+      "style_description_ja": "丸首＋前立て（ボタン1個）",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": "このキットのテクスチャ(KSL_a003)では前立て/襟部分のUV領域が未塗装で暗色表示になる",
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_9",
+        "child_nodes": []
+      }
+    },
+    {
+      "collar_id": 10,
+      "status": "confirmed",
+      "identified_by": "object",
+      "blender_object_names": [
+        "collar_10"
+      ],
+      "blender_collection": "collars",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "parts": [
+        {
+          "object": "collar_10",
+          "part_role": "neck_panel + collar_band (1オブジェクトに首元フィラーと襟本体の2アイランド)",
+          "vertices": 348,
+          "triangles": 560,
+          "face_islands": 2,
+          "has_cloth_modifier": true,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": true,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": false
+          }
+        }
+      ],
+      "total_triangles": 560,
+      "style_visual_estimate": "shirt_collar",
+      "style_description_ja": "折り襟系（前中央が開いた形状）",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": null,
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_10",
+        "child_nodes": []
+      }
+    },
+    {
+      "collar_id": 11,
+      "status": "confirmed",
+      "identified_by": "object",
+      "blender_object_names": [
+        "collar_11"
+      ],
+      "blender_collection": "collars",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "parts": [
+        {
+          "object": "collar_11",
+          "part_role": "neck_panel + collar_band (1オブジェクトに首元フィラーと襟本体の2アイランド)",
+          "vertices": 465,
+          "triangles": 748,
+          "face_islands": 2,
+          "has_cloth_modifier": false,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": true,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": false
+          }
+        }
+      ],
+      "total_triangles": 748,
+      "style_visual_estimate": "round_collar_with_placket",
+      "style_description_ja": "丸みのある襟＋前立て",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": "このキットのテクスチャ(KSL_a003)では前立て/襟部分のUV領域が未塗装で暗色表示になる",
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_11",
+        "child_nodes": []
+      }
+    },
+    {
+      "collar_id": 12,
+      "status": "confirmed",
+      "identified_by": "collection",
+      "blender_object_names": [
+        "Mesh_0049.001",
+        "Mesh_0051"
+      ],
+      "blender_collection": "collar_12",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_12"
+      ],
+      "parts": [
+        {
+          "object": "Mesh_0049.001",
+          "part_role": "neck_panel + placket/buttons (首元フィラー＋前立て・ボタン)",
+          "vertices": 324,
+          "triangles": 451,
+          "face_islands": 5,
+          "has_cloth_modifier": false,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": false,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": true
+          }
+        },
+        {
+          "object": "Mesh_0051",
+          "part_role": "collar_band (襟本体)",
+          "vertices": 518,
+          "triangles": 899,
+          "face_islands": 2,
+          "has_cloth_modifier": false,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": false,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": true
+          }
+        }
+      ],
+      "total_triangles": 1350,
+      "style_visual_estimate": "polo_collar_with_placket",
+      "style_description_ja": "ポロ襟＋前立て",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": "このキットのテクスチャ(KSL_a003)では前立て/襟部分のUV領域が未塗装で暗色表示になる",
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_12",
+        "child_nodes": [
+          "Mesh_0051"
+        ]
+      }
+    },
+    {
+      "collar_id": 13,
+      "status": "confirmed",
+      "identified_by": "collection",
+      "blender_object_names": [
+        "Mesh_0031",
+        "Mesh_0034"
+      ],
+      "blender_collection": "collar_13",
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_13"
+      ],
+      "parts": [
+        {
+          "object": "Mesh_0031",
+          "part_role": "neck_panel + buttons (首元フィラー＋ボタン)",
+          "vertices": 302,
+          "triangles": 455,
+          "face_islands": 6,
+          "has_cloth_modifier": true,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": false,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": true
+          }
+        },
+        {
+          "object": "Mesh_0034",
+          "part_role": "collar_band (襟本体)",
+          "vertices": 424,
+          "triangles": 761,
+          "face_islands": 2,
+          "has_cloth_modifier": true,
+          "material": [
+            "Kit"
+          ],
+          "current_visibility": {
+            "hide_viewport_monitor": false,
+            "hide_eye(hide_get)": false,
+            "hide_render": false,
+            "visible_get": false,
+            "parent_layer_collection_hidden": true
+          }
+        }
+      ],
+      "total_triangles": 1216,
+      "style_visual_estimate": "polo_collar_with_buttons",
+      "style_description_ja": "ポロ襟＋ボタン2個",
+      "style_confidence": "estimated (render visual check only)",
+      "texture_note": null,
+      "shares_neck_seam_with_shirt": true,
+      "web_blend": {
+        "file": "nike2223_web.blend",
+        "root_node": "collar_13",
+        "child_nodes": [
+          "Mesh_0034"
+        ]
+      }
+    }
+  ]
+}

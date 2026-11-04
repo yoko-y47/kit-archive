@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 3,
+  "note": "placeholder-01〜07 は仮データ。実物のシーズン・カテゴリが未確認のため season / type は未設定（null）。並びは sortHint で、移行前の表示順（手前から 01→07）を保っている。色・襟は表示確認用",
+  "kits": [
+    {
+      "id": "placeholder-01",
+      "season": null, "seasonStartYear": null, "name": "仮データ 01", "type": null, "variant": null,
+      "modelUrl": "../export/kit_hanging.glb", "modelUrlWorn": "../export/kit_base.glb", "thumbnailUrl": null,
+      "hanger": { "visible": true }, "display": { "collar": 2, "color": "#6fa3d8" },
+      "placeholder": true, "sortHint": 1
+    },
+    {
+      "id": "placeholder-02",
+      "season": null, "seasonStartYear": null, "name": "仮データ 02", "type": null, "variant": null,
+      "modelUrl": "../export/kit_hanging.glb", "modelUrlWorn": "../export/kit_base.glb", "thumbnailUrl": null,
+      "hanger": { "visible": true }, "display": { "collar": 3, "color": "#20365f" },
+      "placeholder": true, "sortHint": 2
+    },
+    {
+      "id": "placeholder-03",
+      "season": null, "seasonStartYear": null, "name": "仮データ 03", "type": null, "variant": null,
+      "modelUrl": "../export/kit_hanging.glb", "modelUrlWorn": "../export/kit_base.glb", "thumbnailUrl": null,
+      "hanger": { "visible": true }, "display": { "collar": 5, "color": "#e9e6dc" },
+      "placeholder": true, "sortHint": 3
+    },
+    {
+      "id": "placeholder-04",
+      "season": null, "seasonStartYear": null, "name": "仮データ 04", "type": null, "variant": null,
+      "modelUrl": "../export/kit_hanging.glb", "modelUrlWorn": "../export/kit_base.glb", "thumbnailUrl": null,
+      "hanger": { "visible": true }, "display": { "collar": 12, "color": "#b3262f" },
+      "placeholder": true, "sortHint": 4
+    },
+    {
+      "id": "placeholder-05",
+      "season": null, "seasonStartYear": null, "name": "仮データ 05", "type": null, "variant": null,
+      "modelUrl": "../export/kit_hanging.glb", "modelUrlWorn": "../export/kit_base.glb", "thumbnailUrl": null,
+      "hanger": { "visible": true }, "display": { "collar": 13, "color": "#d9b13b" },
+      "placeholder": true, "sortHint": 5
+    },
+    {
+      "id": "placeholder-06",
+      "season": null, "seasonStartYear": null, "name": "仮データ 06", "type": null, "variant": null,
+      "modelUrl": "../export/kit_hanging.glb", "modelUrlWorn": "../export/kit_base.glb", "thumbnailUrl": null,
+      "hanger": { "visible": true }, "display": { "collar": 9, "color": "#2f8a4a" },
+      "placeholder": true, "sortHint": 6
+    },
+    {
+      "id": "placeholder-07",
+      "season": null, "seasonStartYear": null, "name": "仮データ 07", "type": null, "variant": null,
+      "modelUrl": "../export/kit_hanging.glb", "modelUrlWorn": "../export/kit_base.glb", "thumbnailUrl": null,
+      "hanger": { "visible": true }, "display": { "collar": 1, "color": "#f1f1ec" },
+      "placeholder": true, "sortHint": 7
+    }
+  ]
+}

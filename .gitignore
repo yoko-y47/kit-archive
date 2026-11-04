@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Blender の自動バックアップ（元データは .blend 本体を管理する）
+*.blend1
+*.blend2
+
+# ローカル確認用の設定・一時ファイル
+.claude/
+node_modules/

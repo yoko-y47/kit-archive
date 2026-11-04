@@ -1,0 +1,5056 @@
+{
+  "_meta": {
+    "source_file": "/Users/yokooyuuhei/Desktop/nike2223.blend",
+    "source_sha256": "0041550e5557292e03453ba0c4c926163eaec5b92aa5cdf0779dc47a2c172b8e",
+    "analyzed_with": "Blender 3.0.0 (bpy, background mode, scratch copy; original never opened for writing)",
+    "analyzed_on": "2026-11-03",
+    "coordinate_system": "Blender Z-up, meters. Model front faces +Y. Origin of every object = world (0,0,0) at foot level.",
+    "scene": {
+      "blender_version_running": "3.0.0",
+      "file_version": [
+        3,
+        0,
+        42
+      ],
+      "filepath": "/private/tmp/claude-501/-Users-yokooyuuhei-Desktop-Kit-Archive/227ad563-fd83-4cca-a9c0-0f6e21b07b65/scratchpad/work/nike2223_copy.blend",
+      "scene": "Scene",
+      "frame_current": 0,
+      "frame_start": 1,
+      "frame_end": 250,
+      "unit_system": "METRIC",
+      "scale_length": 1.0,
+      "length_unit": "METERS",
+      "render_engine": "BLENDER_EEVEE",
+      "scenes": [
+        "Scene"
+      ],
+      "rigidbody_world": {
+        "exists": true,
+        "collection": "RigidBodyWorld"
+      },
+      "gravity": [
+        0.0,
+        0.0,
+        -9.81
+      ],
+      "counts": {
+        "objects": 29,
+        "meshes": 29,
+        "materials": 4,
+        "images": 6,
+        "collections": 10,
+        "actions": 0,
+        "cameras": 0,
+        "lights": 0
+      },
+      "actions": [],
+      "gltf_addon_enabled": true
+    }
+  },
+  "collections": {
+    "Scene Collection": {
+      "path": [
+        "Scene Collection"
+      ],
+      "exclude": false,
+      "lc_hide_viewport": false,
+      "col_hide_viewport": false,
+      "col_hide_render": false,
+      "col_hide_select": false,
+      "children": [
+        "Collection"
+      ],
+      "objects": []
+    },
+    "Collection": {
+      "path": [
+        "Scene Collection",
+        "Collection"
+      ],
+      "exclude": false,
+      "lc_hide_viewport": false,
+      "col_hide_viewport": false,
+      "col_hide_render": false,
+      "col_hide_select": false,
+      "children": [
+        "sleeves_long",
+        "collars",
+        "shirt_out"
+      ],
+      "objects": [
+        "shirt_inside",
+        "short_bottom",
+        "short_top_with_inside_shirt",
+        "short_top_with_out_shirt",
+        "sleeves_short",
+        "socks_short"
+      ]
+    },
+    "sleeves_long": {
+      "path": [
+        "Scene Collection",
+        "Collection",
+        "sleeves_long"
+      ],
+      "exclude": false,
+      "lc_hide_viewport": true,
+      "col_hide_viewport": false,
+      "col_hide_render": false,
+      "col_hide_select": false,
+      "children": [],
+      "objects": [
+        "Mesh_0050",
+        "Mesh_0052",
+        "Mesh_0054"
+      ]
+    },
+    "collars": {
+      "path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "exclude": false,
+      "lc_hide_viewport": false,
+      "col_hide_viewport": false,
+      "col_hide_render": false,
+      "col_hide_select": false,
+      "children": [
+        "collar_3",
+        "collar_4",
+        "collar_12",
+        "collar_13"
+      ],
+      "objects": [
+        "collar_1",
+        "collar_2",
+        "collar_9",
+        "collar_5",
+        "collar_6",
+        "collar_7",
+        "collar_8",
+        "collar_10",
+        "collar_11"
+      ]
+    },
+    "collar_3": {
+      "path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_3"
+      ],
+      "exclude": false,
+      "lc_hide_viewport": true,
+      "col_hide_viewport": false,
+      "col_hide_render": false,
+      "col_hide_select": false,
+      "children": [],
+      "objects": [
+        "Mesh_0047",
+        "Mesh_0049"
+      ]
+    },
+    "collar_4": {
+      "path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_4"
+      ],
+      "exclude": false,
+      "lc_hide_viewport": true,
+      "col_hide_viewport": false,
+      "col_hide_render": false,
+      "col_hide_select": false,
+      "children": [],
+      "objects": [
+        "Mesh_0045",
+        "collar_4"
+      ]
+    },
+    "collar_12": {
+      "path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_12"
+      ],
+      "exclude": false,
+      "lc_hide_viewport": true,
+      "col_hide_viewport": false,
+      "col_hide_render": false,
+      "col_hide_select": false,
+      "children": [],
+      "objects": [
+        "Mesh_0049.001",
+        "Mesh_0051"
+      ]
+    },
+    "collar_13": {
+      "path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_13"
+      ],
+      "exclude": false,
+      "lc_hide_viewport": true,
+      "col_hide_viewport": false,
+      "col_hide_render": false,
+      "col_hide_select": false,
+      "children": [],
+      "objects": [
+        "Mesh_0031",
+        "Mesh_0034"
+      ]
+    },
+    "shirt_out": {
+      "path": [
+        "Scene Collection",
+        "Collection",
+        "shirt_out"
+      ],
+      "exclude": false,
+      "lc_hide_viewport": false,
+      "col_hide_viewport": false,
+      "col_hide_render": false,
+      "col_hide_select": false,
+      "children": [],
+      "objects": [
+        "Mesh_0046.001",
+        "shirt_out"
+      ]
+    },
+    "Collection.001": {
+      "path": null,
+      "linked_to_scene": false,
+      "children": [],
+      "objects": [
+        "head"
+      ],
+      "col_hide_viewport": false,
+      "col_hide_render": false,
+      "users": 1
+    },
+    "RigidBodyWorld": {
+      "path": null,
+      "linked_to_scene": false,
+      "children": [],
+      "objects": [
+        "shirt_out"
+      ],
+      "col_hide_viewport": false,
+      "col_hide_render": false,
+      "users": 1
+    }
+  },
+  "objects": [
+    {
+      "name": "Mesh_0031",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0031Mesh",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 13）",
+      "role_confidence": "high",
+      "collar_id": 13,
+      "exclusive_group": "collar",
+      "collections": [
+        "collar_13"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_13"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": true
+      },
+      "mesh": {
+        "vertices": 302,
+        "edges": 755,
+        "faces": 455,
+        "triangles": 455,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 6,
+        "boundary_edges": 145,
+        "n_boundary_loops": 4,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0412,
+        "smooth_faces": 455,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3389,
+            0.6489
+          ],
+          "v": [
+            -0.9438,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 2
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 433,
+        "raycast_first_hit_inward_facing": 540,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.57522
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.20109
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47467
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "Mesh_0034",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0034Mesh.001",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 13）",
+      "role_confidence": "high",
+      "collar_id": 13,
+      "exclusive_group": "collar",
+      "collections": [
+        "collar_13"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_13"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": true
+      },
+      "mesh": {
+        "vertices": 424,
+        "edges": 1184,
+        "faces": 761,
+        "triangles": 761,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 85,
+        "n_boundary_loops": 2,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0869,
+        "smooth_faces": 761,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3499,
+            0.6489
+          ],
+          "v": [
+            -0.9556,
+            -0.918
+          ]
+        },
+        "zero_area_uv_faces": 13
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 1078,
+        "raycast_first_hit_inward_facing": 586,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.09709,
+          -0.03994,
+          1.42042
+        ],
+        "max": [
+          0.09647,
+          0.11972,
+          1.58685
+        ],
+        "size": [
+          0.19356,
+          0.15966,
+          0.16643
+        ],
+        "center": [
+          -0.00031,
+          0.03989,
+          1.50363
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "Mesh_0045",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0045Mesh",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 4）",
+      "role_confidence": "high",
+      "collar_id": 4,
+      "exclusive_group": "collar",
+      "collections": [
+        "collar_4"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_4"
+      ],
+      "in_scene": true,
+      "parent": "collar_4",
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": true
+      },
+      "mesh": {
+        "vertices": 697,
+        "edges": 1708,
+        "faces": 984,
+        "triangles": 984,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 51,
+        "boundary_edges": 464,
+        "n_boundary_loops": 8,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0776,
+        "smooth_faces": 984,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3298,
+            0.6699
+          ],
+          "v": [
+            -0.9668,
+            -0.5054
+          ]
+        },
+        "zero_area_uv_faces": 11
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 797,
+        "raycast_first_hit_inward_facing": 835,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.09603,
+          -0.03766,
+          1.44289
+        ],
+        "max": [
+          0.09655,
+          0.12585,
+          1.58834
+        ],
+        "size": [
+          0.19258,
+          0.16351,
+          0.14545
+        ],
+        "center": [
+          0.00026,
+          0.0441,
+          1.51561
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "Mesh_0046.001",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0046Mesh.001",
+      "role": "shirt_body_part",
+      "role_description_ja": "シャツ本体（裾出し）の背面下部の裾パーツ。shirt_outの下端境界に接続",
+      "role_confidence": "high",
+      "collar_id": null,
+      "exclusive_group": "torso",
+      "collections": [
+        "shirt_out"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "shirt_out"
+      ],
+      "in_scene": true,
+      "parent": "shirt_out",
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": true,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 169,
+        "edges": 446,
+        "faces": 278,
+        "triangles": 278,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 1,
+        "boundary_edges": 58,
+        "n_boundary_loops": 1,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0645,
+        "smooth_faces": 278,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3579,
+            0.6401
+          ],
+          "v": [
+            -0.1423,
+            -0.0234
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 357,
+        "raycast_first_hit_inward_facing": 803,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.18954,
+          -0.09754,
+          0.88295
+        ],
+        "max": [
+          0.18983,
+          0.04975,
+          1.06314
+        ],
+        "size": [
+          0.37937,
+          0.1473,
+          0.18019
+        ],
+        "center": [
+          0.00015,
+          -0.0239,
+          0.97305
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "Mesh_0047",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0047Mesh",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 3）",
+      "role_confidence": "high",
+      "collar_id": 3,
+      "exclusive_group": "collar",
+      "collections": [
+        "collar_3"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_3"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": true
+      },
+      "mesh": {
+        "vertices": 155,
+        "edges": 381,
+        "faces": 226,
+        "triangles": 226,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 1,
+        "boundary_edges": 84,
+        "n_boundary_loops": 2,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0382,
+        "smooth_faces": 226,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.4331,
+            0.5645
+          ],
+          "v": [
+            -0.5933,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 424,
+        "raycast_first_hit_inward_facing": 517,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.5734
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.19927
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47376
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "Mesh_0049",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0049Mesh.004",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 3）",
+      "role_confidence": "high",
+      "collar_id": 3,
+      "exclusive_group": "collar",
+      "collections": [
+        "collar_3"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_3"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": true
+      },
+      "mesh": {
+        "vertices": 699,
+        "edges": 1710,
+        "faces": 984,
+        "triangles": 984,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 52,
+        "boundary_edges": 468,
+        "n_boundary_loops": 8,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0764,
+        "smooth_faces": 984,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3298,
+            0.6699
+          ],
+          "v": [
+            -0.9668,
+            -0.5044
+          ]
+        },
+        "zero_area_uv_faces": 5
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 780,
+        "raycast_first_hit_inward_facing": 831,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.09603,
+          -0.03766,
+          1.44289
+        ],
+        "max": [
+          0.09655,
+          0.11908,
+          1.58834
+        ],
+        "size": [
+          0.19258,
+          0.15673,
+          0.14545
+        ],
+        "center": [
+          0.00026,
+          0.04071,
+          1.51561
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "Mesh_0049.001",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0049Mesh.005",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 12）",
+      "role_confidence": "high",
+      "collar_id": 12,
+      "exclusive_group": "collar",
+      "collections": [
+        "collar_12"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_12"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": true
+      },
+      "mesh": {
+        "vertices": 324,
+        "edges": 773,
+        "faces": 451,
+        "triangles": 451,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 5,
+        "boundary_edges": 193,
+        "n_boundary_loops": 4,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0405,
+        "smooth_faces": 451,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3369,
+            0.6626
+          ],
+          "v": [
+            -0.9561,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 21
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 449,
+        "raycast_first_hit_inward_facing": 538,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.57499
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.20086
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47456
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "Mesh_0050",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0050Mesh.002",
+      "role": "sleeves_long_part",
+      "role_description_ja": "長袖の左腕のみの部分パーツ（肩付近と袖口付近）。分割理由は不明",
+      "role_confidence": "unknown_purpose",
+      "collar_id": null,
+      "exclusive_group": "sleeves",
+      "collections": [
+        "sleeves_long"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "sleeves_long"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": true
+      },
+      "mesh": {
+        "vertices": 207,
+        "edges": 539,
+        "faces": 334,
+        "triangles": 334,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 76,
+        "n_boundary_loops": 2,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0296,
+        "smooth_faces": 334,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.6626,
+            0.9961
+          ],
+          "v": [
+            -0.2798,
+            -0.1034
+          ]
+        },
+        "zero_area_uv_faces": 2
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 148,
+        "raycast_first_hit_inward_facing": 254,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.63567,
+          -0.01179,
+          1.03856
+        ],
+        "max": [
+          -0.19322,
+          0.10939,
+          1.5092
+        ],
+        "size": [
+          0.44245,
+          0.12118,
+          0.47064
+        ],
+        "center": [
+          -0.41444,
+          0.0488,
+          1.27388
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "Mesh_0051",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0051Mesh",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 12）",
+      "role_confidence": "high",
+      "collar_id": 12,
+      "exclusive_group": "collar",
+      "collections": [
+        "collar_12"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_12"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": true
+      },
+      "mesh": {
+        "vertices": 518,
+        "edges": 1425,
+        "faces": 899,
+        "triangles": 899,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 153,
+        "n_boundary_loops": 5,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0891,
+        "smooth_faces": 899,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3396,
+            0.6602
+          ],
+          "v": [
+            -0.9561,
+            -0.9141
+          ]
+        },
+        "zero_area_uv_faces": 79
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 1099,
+        "raycast_first_hit_inward_facing": 543,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.09711,
+          -0.04052,
+          1.42132
+        ],
+        "max": [
+          0.09643,
+          0.12256,
+          1.587
+        ],
+        "size": [
+          0.19354,
+          0.16308,
+          0.16568
+        ],
+        "center": [
+          -0.00034,
+          0.04102,
+          1.50416
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "Mesh_0052",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0052Mesh.001",
+      "role": "sleeves_long_part",
+      "role_description_ja": "長袖の左右袖口付近のバンド。別テクスチャ（参照切れ）を使用。用途は不明（袖口内側と推定）",
+      "role_confidence": "unknown_purpose",
+      "collar_id": null,
+      "exclusive_group": "sleeves",
+      "collections": [
+        "sleeves_long"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "sleeves_long"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": true
+      },
+      "mesh": {
+        "vertices": 140,
+        "edges": 316,
+        "faces": 178,
+        "triangles": 178,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 98,
+        "n_boundary_loops": 2,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0075,
+        "smooth_faces": 178,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.1227,
+            0.877
+          ],
+          "v": [
+            -0.6504,
+            -0.6128
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 238,
+        "raycast_first_hit_inward_facing": 327,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Tex_0341_0_dds"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.60375,
+          0.02556,
+          1.07407
+        ],
+        "max": [
+          0.60375,
+          0.09196,
+          1.11684
+        ],
+        "size": [
+          1.20751,
+          0.0664,
+          0.04277
+        ],
+        "center": [
+          0.0,
+          0.05876,
+          1.09545
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "Mesh_0054",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0054Mesh.001",
+      "role": "sleeves_long",
+      "role_description_ja": "長袖本体（左右2アイランド。左腕は一部がMesh_0050に分割）",
+      "role_confidence": "high",
+      "collar_id": null,
+      "exclusive_group": "sleeves",
+      "collections": [
+        "sleeves_long"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "sleeves_long"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": true
+      },
+      "mesh": {
+        "vertices": 1239,
+        "edges": 3515,
+        "faces": 2278,
+        "triangles": 2278,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 196,
+        "n_boundary_loops": 2,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.3302,
+        "smooth_faces": 2278,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.0038,
+            0.9604
+          ],
+          "v": [
+            -0.3169,
+            -0.0657
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 85,
+        "raycast_first_hit_inward_facing": 923,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.56618,
+          -0.0571,
+          1.03979
+        ],
+        "max": [
+          0.63595,
+          0.10929,
+          1.50994
+        ],
+        "size": [
+          1.20213,
+          0.16638,
+          0.47015
+        ],
+        "center": [
+          0.03488,
+          0.02609,
+          1.27486
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "collar_1",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0038Mesh",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 1）",
+      "role_confidence": "high",
+      "collar_id": 1,
+      "exclusive_group": "collar",
+      "collections": [
+        "collars"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": true,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 492,
+        "edges": 1321,
+        "faces": 830,
+        "triangles": 830,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 152,
+        "n_boundary_loops": 3,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0858,
+        "smooth_faces": 830,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3281,
+            0.6714
+          ],
+          "v": [
+            -0.9561,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 34
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 638,
+        "raycast_first_hit_inward_facing": 729,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.5761
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.20197
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47511
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "collar_10",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0035Mesh.001",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 10）",
+      "role_confidence": "high",
+      "collar_id": 10,
+      "exclusive_group": "collar",
+      "collections": [
+        "collars"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": true,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 348,
+        "edges": 909,
+        "faces": 560,
+        "triangles": 560,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 138,
+        "n_boundary_loops": 5,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0857,
+        "smooth_faces": 560,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3279,
+            0.6719
+          ],
+          "v": [
+            -0.9565,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 636,
+        "raycast_first_hit_inward_facing": 748,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.58229
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.20816
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47821
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "collar_11",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0041Mesh",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 11）",
+      "role_confidence": "high",
+      "collar_id": 11,
+      "exclusive_group": "collar",
+      "collections": [
+        "collars"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": true,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 465,
+        "edges": 1215,
+        "faces": 748,
+        "triangles": 748,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 186,
+        "n_boundary_loops": 3,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0806,
+        "smooth_faces": 748,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3315,
+            0.6685
+          ],
+          "v": [
+            -0.9561,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 2
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 653,
+        "raycast_first_hit_inward_facing": 731,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.57605
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.20192
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47509
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "collar_2",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0049Mesh.003",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 2）",
+      "role_confidence": "high",
+      "collar_id": 2,
+      "exclusive_group": "collar",
+      "collections": [
+        "collars"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": true,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 486,
+        "edges": 1303,
+        "faces": 818,
+        "triangles": 818,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 152,
+        "n_boundary_loops": 3,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.086,
+        "smooth_faces": 818,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3281,
+            0.6714
+          ],
+          "v": [
+            -0.9561,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 34
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 649,
+        "raycast_first_hit_inward_facing": 727,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.5761
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.20197
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47511
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "collar_4",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0042Mesh.002",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 4）",
+      "role_confidence": "high",
+      "collar_id": 4,
+      "exclusive_group": "collar",
+      "collections": [
+        "collar_4"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars",
+        "collar_4"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [
+        "Mesh_0045"
+      ],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": true
+      },
+      "mesh": {
+        "vertices": 150,
+        "edges": 366,
+        "faces": 216,
+        "triangles": 216,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 1,
+        "boundary_edges": 84,
+        "n_boundary_loops": 2,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0372,
+        "smooth_faces": 216,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.4331,
+            0.5645
+          ],
+          "v": [
+            -0.5933,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 409,
+        "raycast_first_hit_inward_facing": 502,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.5734
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.19927
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47376
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "collar_5",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0040Mesh.001",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 5）",
+      "role_confidence": "high",
+      "collar_id": 5,
+      "exclusive_group": "collar",
+      "collections": [
+        "collars"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": true,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 492,
+        "edges": 1321,
+        "faces": 830,
+        "triangles": 830,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 152,
+        "n_boundary_loops": 3,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0922,
+        "smooth_faces": 830,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3281,
+            0.6714
+          ],
+          "v": [
+            -0.9561,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 34
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 619,
+        "raycast_first_hit_inward_facing": 756,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.58498
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.21085
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47955
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "collar_6",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0014Mesh",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 6）",
+      "role_confidence": "high",
+      "collar_id": 6,
+      "exclusive_group": "collar",
+      "collections": [
+        "collars"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": true,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 486,
+        "edges": 1303,
+        "faces": 818,
+        "triangles": 818,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 152,
+        "n_boundary_loops": 3,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.095,
+        "smooth_faces": 818,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3281,
+            0.6714
+          ],
+          "v": [
+            -0.9561,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 34
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 636,
+        "raycast_first_hit_inward_facing": 757,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.5851
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.21097
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47961
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "collar_7",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0041Mesh.001",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 7）",
+      "role_confidence": "high",
+      "collar_id": 7,
+      "exclusive_group": "collar",
+      "collections": [
+        "collars"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": true,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 500,
+        "edges": 1345,
+        "faces": 846,
+        "triangles": 846,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 152,
+        "n_boundary_loops": 3,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0864,
+        "smooth_faces": 846,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3281,
+            0.6714
+          ],
+          "v": [
+            -0.9561,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 34
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 638,
+        "raycast_first_hit_inward_facing": 730,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.5761
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.20197
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47511
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "collar_8",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0044Mesh.002",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 8）",
+      "role_confidence": "high",
+      "collar_id": 8,
+      "exclusive_group": "collar",
+      "collections": [
+        "collars"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": true,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 467,
+        "edges": 1244,
+        "faces": 778,
+        "triangles": 778,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 154,
+        "n_boundary_loops": 3,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0824,
+        "smooth_faces": 778,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3281,
+            0.6714
+          ],
+          "v": [
+            -0.9561,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 34
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 643,
+        "raycast_first_hit_inward_facing": 724,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.5761
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.20197
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47511
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "collar_9",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0039Mesh.001",
+      "role": "collar_part",
+      "role_description_ja": "襟パーツ（襟番号 9）",
+      "role_confidence": "high",
+      "collar_id": 9,
+      "exclusive_group": "collar",
+      "collections": [
+        "collars"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "collars"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": true,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 522,
+        "edges": 1377,
+        "faces": 856,
+        "triangles": 856,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 186,
+        "n_boundary_loops": 3,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0844,
+        "smooth_faces": 856,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3281,
+            0.6714
+          ],
+          "v": [
+            -0.9561,
+            -0.4368
+          ]
+        },
+        "zero_area_uv_faces": 34
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 628,
+        "raycast_first_hit_inward_facing": 735,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.10792,
+          -0.04524,
+          1.37413
+        ],
+        "max": [
+          0.11033,
+          0.17403,
+          1.57833
+        ],
+        "size": [
+          0.21825,
+          0.21927,
+          0.2042
+        ],
+        "center": [
+          0.0012,
+          0.0644,
+          1.47623
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "head",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0034Mesh",
+      "role": "head",
+      "role_description_ja": "頭部（顔）。Collection.001はシーンにリンクされておらず、GLB出力にも含まれない",
+      "role_confidence": "confirmed",
+      "collar_id": null,
+      "exclusive_group": null,
+      "collections": [
+        "Collection.001"
+      ],
+      "collection_path": null,
+      "in_scene": false,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 1340,
+        "edges": 3935,
+        "faces": 2594,
+        "triangles": 2594,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 88,
+        "n_boundary_loops": 5,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.0542,
+        "smooth_faces": 2594,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.0059,
+            0.9937
+          ],
+          "v": [
+            -0.998,
+            -0.002
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 409,
+        "raycast_first_hit_inward_facing": 1129,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "face"
+      ],
+      "modifiers": [],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.071,
+          0.071,
+          1.5617
+        ],
+        "max": [
+          0.071,
+          0.19291,
+          1.7812
+        ],
+        "size": [
+          0.142,
+          0.12191,
+          0.2195
+        ],
+        "center": [
+          0.0,
+          0.13196,
+          1.67145
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "shirt_inside",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0053Mesh.001",
+      "role": "shirt_body_variant",
+      "role_description_ja": "シャツ本体のタックイン（パンツに入れた）状態用バリエーションと推定。裏地メッシュではない",
+      "role_confidence": "estimated",
+      "collar_id": null,
+      "exclusive_group": "torso",
+      "collections": [
+        "Collection"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": true,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 1029,
+        "edges": 2895,
+        "faces": 1864,
+        "triangles": 1864,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 1,
+        "boundary_edges": 198,
+        "n_boundary_loops": 3,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.491,
+        "smooth_faces": 1864,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3438,
+            0.6562
+          ],
+          "v": [
+            -0.8057,
+            -0.1193
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 146,
+        "raycast_first_hit_inward_facing": 1457,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.21135,
+          -0.08375,
+          1.03452
+        ],
+        "max": [
+          0.20921,
+          0.1921,
+          1.54841
+        ],
+        "size": [
+          0.42056,
+          0.27585,
+          0.51389
+        ],
+        "center": [
+          -0.00107,
+          0.05417,
+          1.29147
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "shirt_out",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0048Mesh",
+      "role": "shirt_body",
+      "role_description_ja": "シャツ本体（裾出し状態）",
+      "role_confidence": "confirmed",
+      "collar_id": null,
+      "exclusive_group": "torso",
+      "collections": [
+        "RigidBodyWorld",
+        "shirt_out"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection",
+        "shirt_out"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [
+        "Mesh_0046.001"
+      ],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": true,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 1152,
+        "edges": 3219,
+        "faces": 2066,
+        "triangles": 2066,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 1,
+        "boundary_edges": 240,
+        "n_boundary_loops": 2,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.5482,
+        "smooth_faces": 2066,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.3438,
+            0.6562
+          ],
+          "v": [
+            -0.9062,
+            -0.0234
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 313,
+        "raycast_first_hit_inward_facing": 1312,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": "ACTIVE",
+      "bbox_world": {
+        "min": [
+          -0.21135,
+          -0.09058,
+          0.88655
+        ],
+        "max": [
+          0.20921,
+          0.19101,
+          1.54841
+        ],
+        "size": [
+          0.42056,
+          0.28158,
+          0.66186
+        ],
+        "center": [
+          -0.00107,
+          0.05022,
+          1.21748
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "short_bottom",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0058Mesh.001",
+      "role": "shorts",
+      "role_description_ja": "ショーツ下部",
+      "role_confidence": "high",
+      "collar_id": null,
+      "exclusive_group": null,
+      "collections": [
+        "Collection"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": true,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 336,
+        "edges": 874,
+        "faces": 540,
+        "triangles": 540,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 128,
+        "n_boundary_loops": 2,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.1286,
+        "smooth_faces": 540,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.0164,
+            0.9834
+          ],
+          "v": [
+            -0.9497,
+            -0.5698
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 210,
+        "raycast_first_hit_inward_facing": 1184,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.2349,
+          -0.05032,
+          0.5994
+        ],
+        "max": [
+          0.22997,
+          0.16398,
+          0.7302
+        ],
+        "size": [
+          0.46487,
+          0.2143,
+          0.1308
+        ],
+        "center": [
+          -0.00246,
+          0.05683,
+          0.6648
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "short_top_with_inside_shirt",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0049Mesh.002",
+      "role": "shorts",
+      "role_description_ja": "ショーツ上部（シャツタックイン用）",
+      "role_confidence": "high",
+      "collar_id": null,
+      "exclusive_group": "shorts_top",
+      "collections": [
+        "Collection"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": true,
+        "hide_render": false,
+        "visible_get": false,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 804,
+        "edges": 2056,
+        "faces": 1258,
+        "triangles": 1258,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 6,
+        "boundary_edges": 338,
+        "n_boundary_loops": 6,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.4091,
+        "smooth_faces": 1258,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.079,
+            0.9185
+          ],
+          "v": [
+            -0.9497,
+            -0.5698
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 162,
+        "raycast_first_hit_inward_facing": 1508,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.21863,
+          -0.08668,
+          0.70104
+        ],
+        "max": [
+          0.21487,
+          0.19141,
+          1.08715
+        ],
+        "size": [
+          0.4335,
+          0.27809,
+          0.38611
+        ],
+        "center": [
+          -0.00188,
+          0.05237,
+          0.89409
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "short_top_with_out_shirt",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0052Mesh.003",
+      "role": "shorts",
+      "role_description_ja": "ショーツ上部（シャツ裾出し用）",
+      "role_confidence": "high",
+      "collar_id": null,
+      "exclusive_group": "shorts_top",
+      "collections": [
+        "Collection"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": true,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 790,
+        "edges": 2028,
+        "faces": 1244,
+        "triangles": 1244,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 6,
+        "boundary_edges": 324,
+        "n_boundary_loops": 6,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.3962,
+        "smooth_faces": 1244,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.079,
+            0.9185
+          ],
+          "v": [
+            -0.9497,
+            -0.5698
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 208,
+        "raycast_first_hit_inward_facing": 1484,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.21863,
+          -0.06947,
+          0.70104
+        ],
+        "max": [
+          0.21487,
+          0.17512,
+          1.1048
+        ],
+        "size": [
+          0.4335,
+          0.24459,
+          0.40376
+        ],
+        "center": [
+          -0.00188,
+          0.05283,
+          0.90292
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "sleeves_short",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0050Mesh",
+      "role": "sleeves_short",
+      "role_description_ja": "半袖（左右2アイランド）",
+      "role_confidence": "confirmed",
+      "collar_id": null,
+      "exclusive_group": "sleeves",
+      "collections": [
+        "Collection"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": true,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 542,
+        "edges": 1498,
+        "faces": 958,
+        "triangles": 958,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 2,
+        "boundary_edges": 122,
+        "n_boundary_loops": 2,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.1322,
+        "smooth_faces": 958,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.2395,
+            0.7603
+          ],
+          "v": [
+            -0.5903,
+            -0.3391
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 198,
+        "raycast_first_hit_inward_facing": 906,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.35184,
+          -0.0571,
+          1.27398
+        ],
+        "max": [
+          0.35615,
+          0.10684,
+          1.50994
+        ],
+        "size": [
+          0.70798,
+          0.16394,
+          0.23596
+        ],
+        "center": [
+          0.00216,
+          0.02487,
+          1.39196
+        ]
+      },
+      "evaluated_equals_base": true
+    },
+    {
+      "name": "socks_short",
+      "type": "MESH",
+      "mesh_data_name": "Mesh_0060Mesh",
+      "role": "socks",
+      "role_description_ja": "ソックス",
+      "role_confidence": "high",
+      "collar_id": null,
+      "exclusive_group": null,
+      "collections": [
+        "Collection"
+      ],
+      "collection_path": [
+        "Scene Collection",
+        "Collection"
+      ],
+      "in_scene": true,
+      "parent": null,
+      "children": [],
+      "transform": {
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_euler_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "origin_world": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "visibility": {
+        "hide_viewport_monitor": false,
+        "hide_eye(hide_get)": false,
+        "hide_render": false,
+        "visible_get": true,
+        "parent_layer_collection_hidden": false
+      },
+      "mesh": {
+        "vertices": 1440,
+        "edges": 3986,
+        "faces": 2552,
+        "triangles": 2552,
+        "quads": 0,
+        "ngons": 0,
+        "face_islands": 6,
+        "boundary_edges": 316,
+        "n_boundary_loops": 6,
+        "nonmanifold_edges": 0,
+        "surface_area_m2": 0.3006,
+        "smooth_faces": 2552,
+        "use_auto_smooth": false,
+        "has_custom_normals": false,
+        "shape_keys": [],
+        "vertex_groups": []
+      },
+      "uv": {
+        "layers": [
+          {
+            "name": "UVMap",
+            "active": true,
+            "active_render": true
+          }
+        ],
+        "bounds": {
+          "u": [
+            0.0052,
+            0.9946
+          ],
+          "v": [
+            -0.561,
+            -0.3125
+          ]
+        },
+        "zero_area_uv_faces": 0
+      },
+      "normals_check": {
+        "raycast_first_hit_outward_facing": 172,
+        "raycast_first_hit_inward_facing": 1044,
+        "note": "外側から撃ったレイの最初のヒット面の向き。inwardが多い=法線(巻き順)が内向き"
+      },
+      "materials": [
+        "Kit"
+      ],
+      "modifiers": [
+        {
+          "name": "クロス",
+          "type": "CLOTH",
+          "show_viewport": true,
+          "show_render": true,
+          "cloth": {
+            "quality": 5,
+            "mass": 0.3,
+            "air_damping": 1.0,
+            "tension": 15.0,
+            "compression": 15.0,
+            "shear": 5.0,
+            "bending": 0.5,
+            "pin_group": "",
+            "shrink_min": 0.0,
+            "gravity_weight": 1.0,
+            "use_collision": true,
+            "self_collision": false,
+            "distance_min": 0.015,
+            "collision_collection": null,
+            "cache_frames": [
+              1,
+              250
+            ],
+            "baked": false
+          },
+          "point_cache": {
+            "frame_start": 1,
+            "frame_end": 250,
+            "is_baked": false,
+            "use_disk_cache": false,
+            "use_external": false,
+            "filepath": "",
+            "name": "",
+            "info": "0 frames in memory (0 B), cache is outdated!",
+            "is_outdated": true,
+            "use_library_path": true
+          }
+        }
+      ],
+      "rigid_body": null,
+      "bbox_world": {
+        "min": [
+          -0.24346,
+          -0.02594,
+          0.05302
+        ],
+        "max": [
+          0.24398,
+          0.12529,
+          0.53789
+        ],
+        "size": [
+          0.48744,
+          0.15123,
+          0.48487
+        ],
+        "center": [
+          0.00026,
+          0.04968,
+          0.29545
+        ]
+      },
+      "evaluated_equals_base": true
+    }
+  ],
+  "materials": {
+    "eyelash": {
+      "users": 0,
+      "use_nodes": true,
+      "blend_method": "OPAQUE",
+      "shadow_method": "OPAQUE",
+      "use_backface_culling": true,
+      "alpha_threshold": 0.5,
+      "show_transparent_back": true,
+      "diffuse_color": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "nodes": [
+        {
+          "name": "Image Texture.001",
+          "type": "TEX_IMAGE",
+          "bl_idname": "ShaderNodeTexImage",
+          "image": "kirpik_alpha.bmp",
+          "interpolation": "Linear",
+          "extension": "REPEAT",
+          "projection": "FLAT"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "bl_idname": "ShaderNodeOutputMaterial"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "bl_idname": "ShaderNodeBsdfPrincipled",
+          "inputs": {
+            "Base Color": "LINKED",
+            "Metallic": 0.0,
+            "Specular": 0.5,
+            "Roughness": 0.5,
+            "Transmission": 0.0,
+            "Emission": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "Emission Strength": 1.0,
+            "Alpha": 1.0,
+            "Normal": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "name": "Mix Shader",
+          "type": "MIX_SHADER",
+          "bl_idname": "ShaderNodeMixShader"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE",
+          "bl_idname": "ShaderNodeTexImage",
+          "image": "eyelash_map.dds",
+          "interpolation": "Linear",
+          "extension": "REPEAT",
+          "projection": "FLAT"
+        },
+        {
+          "name": "Transparent BSDF",
+          "type": "BSDF_TRANSPARENT",
+          "bl_idname": "ShaderNodeBsdfTransparent",
+          "inputs": {}
+        }
+      ],
+      "links": [
+        "Image Texture.Color -> Principled BSDF.Base Color",
+        "Mix Shader.Shader -> Material Output.Surface",
+        "Principled BSDF.BSDF -> Mix Shader.Shader",
+        "Transparent BSDF.BSDF -> Mix Shader.Shader",
+        "Image Texture.001.Color -> Mix Shader.Fac"
+      ]
+    },
+    "face": {
+      "users": 1,
+      "use_nodes": true,
+      "blend_method": "OPAQUE",
+      "shadow_method": "OPAQUE",
+      "use_backface_culling": false,
+      "alpha_threshold": 0.5,
+      "show_transparent_back": true,
+      "diffuse_color": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "bl_idname": "ShaderNodeOutputMaterial"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "bl_idname": "ShaderNodeBsdfPrincipled",
+          "inputs": {
+            "Base Color": "LINKED",
+            "Metallic": 0.0,
+            "Specular": 0.2083,
+            "Roughness": 0.725,
+            "Transmission": 0.0,
+            "Emission": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "Emission Strength": 1.0,
+            "Alpha": 1.0,
+            "Normal": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE",
+          "bl_idname": "ShaderNodeTexImage",
+          "image": "face_map.dds",
+          "interpolation": "Linear",
+          "extension": "REPEAT",
+          "projection": "FLAT"
+        }
+      ],
+      "links": [
+        "Principled BSDF.BSDF -> Material Output.Surface",
+        "Image Texture.Color -> Principled BSDF.Base Color"
+      ]
+    },
+    "Kit": {
+      "users": 27,
+      "use_nodes": true,
+      "blend_method": "OPAQUE",
+      "shadow_method": "OPAQUE",
+      "use_backface_culling": false,
+      "alpha_threshold": 0.5,
+      "show_transparent_back": true,
+      "diffuse_color": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "bl_idname": "ShaderNodeOutputMaterial"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "bl_idname": "ShaderNodeBsdfPrincipled",
+          "inputs": {
+            "Base Color": "LINKED",
+            "Metallic": 0.0,
+            "Specular": 0.2467,
+            "Roughness": 0.6855,
+            "Transmission": 0.0,
+            "Emission": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "Emission Strength": 1.0,
+            "Alpha": 1.0,
+            "Normal": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE",
+          "bl_idname": "ShaderNodeTexImage",
+          "image": "KSL_a003.PNG",
+          "interpolation": "Linear",
+          "extension": "REPEAT",
+          "projection": "FLAT"
+        }
+      ],
+      "links": [
+        "Principled BSDF.BSDF -> Material Output.Surface",
+        "Image Texture.Color -> Principled BSDF.Base Color"
+      ]
+    },
+    "Tex_0341_0_dds": {
+      "users": 1,
+      "use_nodes": true,
+      "blend_method": "OPAQUE",
+      "shadow_method": "OPAQUE",
+      "use_backface_culling": false,
+      "alpha_threshold": 0.5,
+      "show_transparent_back": true,
+      "diffuse_color": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "bl_idname": "ShaderNodeOutputMaterial"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "bl_idname": "ShaderNodeBsdfPrincipled",
+          "inputs": {
+            "Base Color": "LINKED",
+            "Metallic": 0.0,
+            "Specular": 0.5,
+            "Roughness": 0.5,
+            "Transmission": 0.0,
+            "Emission": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "Emission Strength": 1.0,
+            "Alpha": 1.0,
+            "Normal": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE",
+          "bl_idname": "ShaderNodeTexImage",
+          "image": "Tex_0341_0.dds",
+          "interpolation": "Linear",
+          "extension": "REPEAT",
+          "projection": "FLAT"
+        }
+      ],
+      "links": [
+        "Principled BSDF.BSDF -> Material Output.Surface",
+        "Image Texture.Color -> Principled BSDF.Base Color"
+      ]
+    }
+  },
+  "images": {
+    "eyelash_map.dds": {
+      "filepath": "//../Downloads/eFootball PES 2020 PREVİEW/PES 2020 BLENDER KIT VIEWER/body/eyelash_map.dds",
+      "abs": null,
+      "exists_on_disk": false,
+      "packed": false,
+      "size": [
+        0,
+        0
+      ],
+      "source": "FILE",
+      "file_format": "TARGA",
+      "colorspace": "sRGB",
+      "users": 1,
+      "alpha_mode": "STRAIGHT",
+      "has_data": true
+    },
+    "face_map.dds": {
+      "filepath": "//../Downloads/eFootball PES 2020 PREVİEW/PES 2020 BLENDER KIT VIEWER/body/face_map.dds",
+      "abs": null,
+      "exists_on_disk": false,
+      "packed": false,
+      "size": [
+        0,
+        0
+      ],
+      "source": "FILE",
+      "file_format": "TARGA",
+      "colorspace": "sRGB",
+      "users": 1,
+      "alpha_mode": "STRAIGHT",
+      "has_data": true
+    },
+    "kirpik_alpha.bmp": {
+      "filepath": "//../Downloads/eFootball PES 2020 PREVİEW/Pes 2020 Kit Viewer/Pjanic Face/kirpik_alpha.bmp",
+      "abs": null,
+      "exists_on_disk": false,
+      "packed": false,
+      "size": [
+        0,
+        0
+      ],
+      "source": "FILE",
+      "file_format": "TARGA",
+      "colorspace": "sRGB",
+      "users": 1,
+      "alpha_mode": "STRAIGHT",
+      "has_data": true
+    },
+    "KSL_a003.PNG": {
+      "filepath": "//KSL_trikot/003/KSL_a003.PNG",
+      "abs": null,
+      "exists_on_disk": false,
+      "packed": false,
+      "size": [
+        0,
+        0
+      ],
+      "source": "FILE",
+      "file_format": "TARGA",
+      "colorspace": "sRGB",
+      "users": 1,
+      "alpha_mode": "STRAIGHT",
+      "has_data": true
+    },
+    "Render Result": {
+      "filepath": "",
+      "abs": null,
+      "exists_on_disk": false,
+      "packed": false,
+      "size": [
+        0,
+        0
+      ],
+      "source": "VIEWER",
+      "file_format": "TARGA",
+      "colorspace": "",
+      "users": 1,
+      "alpha_mode": "STRAIGHT",
+      "has_data": false
+    },
+    "Tex_0341_0.dds": {
+      "filepath": "C:/Users/Default.DESKTOP-BNTLU8U/Desktop/Blender Rip/_NinjaRipper/2020.01.28_23.51.07_PES2020.exe_11824/2020.01.29_00.05.49_PES2020.exe/Tex_0341_0.dds",
+      "abs": null,
+      "exists_on_disk": false,
+      "packed": false,
+      "size": [
+        0,
+        0
+      ],
+      "source": "FILE",
+      "file_format": "TARGA",
+      "colorspace": "sRGB",
+      "users": 1,
+      "alpha_mode": "STRAIGHT",
+      "has_data": true
+    }
+  },
+  "image_resolution_note": {
+    "KSL_a003.PNG": "元ファイル基準の相対パス //KSL_trikot/003/KSL_a003.PNG は /Users/yokooyuuhei/Desktop/KSL_trikot/003/KSL_a003.PNG に実在（2048x2048 RGBA PNG）。他の画像（dds/bmp）は参照切れ。"
+  },
+  "proximity_selected": {
+    "shirt_inside": {
+      "shirt_out": {
+        "min": 0.0,
+        "median": 0.00588,
+        "frac_within_5mm": 0.473,
+        "frac_within_1cm": 0.672
+      }
+    },
+    "Mesh_0046.001": {
+      "shirt_out": {
+        "min": 0.0,
+        "median": 0.03859,
+        "frac_within_5mm": 0.249,
+        "frac_within_1cm": 0.249
+      }
+    },
+    "sleeves_short": {
+      "shirt_out": {
+        "min": 0.0,
+        "median": 0.07436,
+        "frac_within_5mm": 0.083,
+        "frac_within_1cm": 0.094
+      },
+      "Mesh_0054": {
+        "min": 0.0,
+        "median": 0.0112,
+        "frac_within_5mm": 0.135,
+        "frac_within_1cm": 0.402
+      }
+    },
+    "Mesh_0050": {
+      "Mesh_0054": {
+        "min": 0.0,
+        "median": 0.0496,
+        "frac_within_5mm": 0.174,
+        "frac_within_1cm": 0.174
+      }
+    },
+    "Mesh_0052": {
+      "Mesh_0054": {
+        "min": 0.0049,
+        "median": 0.0151,
+        "frac_within_5mm": 0.007,
+        "frac_within_1cm": 0.143
+      }
+    }
+  }
+}

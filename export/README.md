@@ -53,7 +53,19 @@ setCollar(2);
 - ファイルの分担（Phase 5）
   - `viewer/kit-data.js`：データ管理層（3D に依存しない）。データ構造の正規化・検証・並び順と、`KitStore`（追加・更新・削除と変更通知）。保存先（source）は差し替え式で、今は `JsonFileSource('kits.json')`（読み取り専用）。データベースにつなぐときは同じ形の source（`load()` / `save(kits)`、`writable: true`）を作って渡す。接続情報はコードに書かない
   - `viewer/rack-layout.js`：配置計算（3D に依存しない）。並べ替え済みの配列から、各ユニフォームの位置・レールの範囲・視点を返す `computeRackLayout`
-  - `viewer/index.html`：3D 表示。ストアの変更通知（reset / add / update / remove）を受けて、アイテムを作る・消す・並べ直す
+  - `viewer/index.html`：画面の HTML と CSS だけ。スクリプトは `main.js` を読み込む
+  - `viewer/main.js`：組み立て。ストア・3D 展示（core）・画面（ui）をつないで読み込みを始める
+- 3D 展示（`viewer/core/`。Phase 1 で index.html から切り出した。DOM は表示先の要素だけを使い、画面への反映は通知で行う）
+  - `context.js`：共有するもの（描画・シーン・カメラ・操作の `ctx`、展示中の `items`、選択などの `state`）と通知（`on` / `emit`：'hint' 'panel' 'info' 'load' 'shape' 'orbit'）
+  - `viewer.js`：入口 `initViewer(要素)`。描画・光・カメラを作り、ラック・入力・描画ループを始める
+  - `view.js`：視点（正面・斜め・横・背面、回転の向き）
+  - `rack.js`：ハンガーバー・床・霞と、掛ける位置（`relayout` / `placeOnRack`）
+  - `display-items.js`：展示アイテムの位置・向き・大きさ、選択・前後の切り替え・ラックへ戻る動き
+  - `kits.js`：データ1件と展示アイテムの対応（モデルの付け替え・テクスチャ・色・襟・形状）と、ストアの変更通知の受け取り（`connectStore`）
+  - `models.js`：GLB の読み込み（パスごとに1回）。`hanger.js`：ハンガーの形
+  - `cloth.js`：布の揺れ。`input.js`：クリックとドラッグ
+- 画面（`viewer/ui/`）：`panel.js`（操作パネル・情報欄）、`add-dialog.js` と `preview.js`（追加画面）、`edit-dialog.js`（編集画面）、`util.js`
+- claude.ai へ公開するときは、`index.html` に加えて `main.js`・`core/*.js`・`ui/*.js`・`kit-data.js`・`kit-storage.js`・`rack-layout.js`・`kits.json`・`*.glb.b64.txt` を同じ相対パスで載せる
 - 1着分のデータ（`kits.json` の `kits[]`、schemaVersion 3）
   - `id`（必須・一意）、`season`（"2026-27" など。未設定は null）、`seasonStartYear`（数値。省略時は season の最初の4桁）、`name`、`type`（Home / Away / Third / Cup / GK。未設定は null）、`variant`（任意）、`modelUrl`（必須。GLB の参照先）、`thumbnailUrl`（任意）、`hanger`（`{ visible }`）
   - 任意：`variantOrder`、`modelUrlWorn`（着用形の GLB）、`display`（`collar` / `color` / `texture` / `scale`）、`placeholder`（仮データ）、`sortHint`、`createdAt` / `updatedAt`

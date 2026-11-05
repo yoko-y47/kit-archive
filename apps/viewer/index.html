@@ -142,6 +142,8 @@
   #loginForm h2 span { font-family: var(--font-display); color: var(--muted); letter-spacing: .08em; margin-left: 6px; }
   #loginForm input[type="email"], #loginForm input[type="password"] { font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 7px 9px; min-width: 0; }
   #loginForm button { padding: 8px 0; }
+  #loginForm button.link { border: none; background: none; color: var(--muted); font-size: 12px; padding: 0; text-decoration: underline; }
+  #loginForm .notice:not(.err) { color: var(--fg); background: var(--bg); }
   #account { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); }
   #account span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
   #account button { flex: none; padding: 4px 10px; }
@@ -239,12 +241,19 @@
 
 <div id="login" hidden>
   <form id="loginForm" novalidate>
-    <h2>ログイン<span>SIGN IN</span></h2>
-    <div class="hint">ML_MyTeam と同じアカウントでログインします。ユニフォームのデータは、そのアカウントのクラブに保存されます</div>
-    <label class="field"><span>メールアドレス</span><input type="email" id="loginEmail" autocomplete="username" required></label>
-    <label class="field"><span>パスワード</span><input type="password" id="loginPassword" autocomplete="current-password" required></label>
+    <h2 id="loginTitle">ログイン<span>SIGN IN</span></h2>
+    <div class="row" role="tablist" id="loginTabs">
+      <button type="button" data-mode="signin" aria-pressed="true">ログイン</button>
+      <button type="button" data-mode="signup" aria-pressed="false">新規登録</button>
+    </div>
+    <div class="hint" id="loginLead">ML_MyTeam のアカウントもそのまま使えます。ユニフォームはアカウントごとのアーカイブに保存されます</div>
+    <label class="field" id="loginEmailField"><span>メールアドレス</span><input type="email" id="loginEmail" autocomplete="username" required></label>
+    <label class="field" id="loginPasswordField"><span id="loginPasswordLabel">パスワード</span><input type="password" id="loginPassword" autocomplete="current-password" required></label>
+    <label class="field" id="loginConfirmField" hidden><span>パスワード（確認）</span><input type="password" id="loginConfirm" autocomplete="new-password"></label>
     <div class="notice err" id="loginError" role="alert" hidden></div>
+    <div class="notice" id="loginNotice" role="status" hidden></div>
     <button type="submit" id="loginSubmit" class="primary">ログイン</button>
+    <button type="button" id="loginForgot" class="link">パスワードを忘れた場合</button>
   </form>
 </div>
 

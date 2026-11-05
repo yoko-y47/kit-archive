@@ -27,7 +27,7 @@ export function initAddDialog(store) {
     if (!kitStore.canAdd) return;
     $('addWhere').textContent = {
       'claude.ai': '保存先：claude.ai（このアーティファクト）。再読み込み後も残り、このアーティファクトを開いた人にも表示されます',
-      supabase: `保存先：${state.userSource.label}。ML_MyTeam の統合版と同じデータです（このクラブの所有者だけが見られます）`
+      supabase: `保存先：${state.userSource.label}。${state.userSource.clubId ? 'ML_MyTeam の統合版と同じデータです。' : ''}このアカウントだけが見られます`
     }[state.userSource.name] ?? '保存先：このブラウザ（IndexedDB）。再読み込み後も残りますが、この端末のこのブラウザだけに保存されます（サイトのデータを消すと消えます）';
     addDialog.showModal();
     startPreview();

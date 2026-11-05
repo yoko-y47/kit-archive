@@ -45,13 +45,14 @@ async function loadKits() {
 }
 async function loadFromSupabase() {
   updateAddButton('ログインすると追加できます');
-  const { createSupabase, ensureSignedIn, openClubSource } = await import('./supabase-mode.js');
+  const { createSupabase, readAuthLink, ensureSignedIn, openArchiveSource } = await import('./supabase-mode.js');
+  const link = readAuthLink();   // メールのリンクから戻ってきたとき（createClient が # を読む前に）
   const client = createSupabase(SUPABASE.url, SUPABASE.key);
-  const user = await ensureSignedIn(client);
-  const { src, reason } = await openClubSource(client, user);
+  const user = await ensureSignedIn(client, link);
+  const { src, reason } = await openArchiveSource(client, user);
   if (src) {
     archive.setUserSource(src);
-    try { await kitStore.attachUserSource(src); setView('angle'); if (!kitStore.size) setStatus('このクラブのユニフォームはまだありません。右上の＋から追加できます'); }
+    try { await kitStore.attachUserSource(src); setView('angle'); if (!kitStore.size) setStatus('このアーカイブのユニフォームはまだありません。右上の＋から追加できます'); }
     catch (err) { setStatus('ユニフォームを読み込めませんでした: ' + describeStorageError(err)); console.error(err); }
   }
   updateAddButton(reason); updateInfo();

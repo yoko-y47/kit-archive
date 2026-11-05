@@ -33,11 +33,9 @@ export async function ensureSignedIn(client, link) {
     $('loginTitle').innerHTML = { signin: 'ログイン<span>SIGN IN</span>', signup: '新規登録<span>SIGN UP</span>', reset: 'パスワードの再設定<span>RESET</span>' }[m];
     $('loginTabs').hidden = m === 'reset';
     $('loginTabs').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
-    $('loginLead').textContent = {
-      signin: 'ML_MyTeam のアカウントもそのまま使えます。ユニフォームはアカウントごとのアーカイブに保存されます',
-      signup: `メールアドレスとパスワード（${MIN_PASSWORD} 文字以上）で登録します。確認のメールが届いたら、リンクを開いてから使い始めてください`,
-      reset: '登録したメールアドレスに、パスワード再設定のリンクを送ります。リンクは一度だけ使え、期限があります'
-    }[m];
+    // 説明はパスワードの再設定のときだけ出す
+    $('loginLead').textContent = m === 'reset' ? '登録したメールアドレスに、パスワード再設定のリンクを送ります。リンクは一度だけ使え、期限があります' : '';
+    $('loginLead').hidden = m !== 'reset';
     $('loginPasswordField').hidden = m === 'reset';
     $('loginConfirmField').hidden = m !== 'signup';
     $('loginPassword').autocomplete = m === 'signup' ? 'new-password' : 'current-password';
@@ -97,6 +95,7 @@ function askNewPassword(client) {
   $('loginTitle').innerHTML = '新しいパスワード<span>NEW PASSWORD</span>';
   $('loginTabs').hidden = true; $('loginForgot').hidden = true; $('loginEmailField').hidden = true;
   $('loginLead').textContent = '再設定のリンクから開きました。新しいパスワードを入れて保存してください';
+  $('loginLead').hidden = false;
   $('loginPasswordLabel').textContent = '新しいパスワード'; $('loginPassword').autocomplete = 'new-password';
   $('loginConfirmField').hidden = false;
   submit.textContent = '保存する';

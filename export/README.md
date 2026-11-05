@@ -77,6 +77,15 @@ npm workspaces。ルートで `npm install` のあと：
 - `apps/viewer`（単体版ビューア）：`index.html`（HTML と CSS）、`src/main.js`（組み立て）、`src/ui/`（`panel.js` 操作パネル・情報欄、`add-dialog.js` と `preview.js` 追加画面、`edit-dialog.js` 編集画面、`util.js`）、`public/`（`kits.json`、`models/*.glb`）
   - GLB の参照先はファイル名で `public/models/` のものに読み替える（`src/main.js` の `resolveModelUrls`）。以前のデータの `../export/kit_hanging.glb` もそのまま読める
 
+### ML_MyTeam への組み込み（Phase 5）
+- ML_MyTeam（`~/Desktop/master-league-club`）は、`kit-archive-core` をリポジトリ内の `vendor/kit-archive-core` にコピーして使う（Kit-Archive は非公開の別リポジトリで、GitHub Actions のビルドから取りに行けないため）
+  - コピーは ML_MyTeam 側で `npm run sync:kit-archive`（`scripts/sync-kit-archive.mjs`）。GLB も `public/models` にコピーする。コピー元のコミットは `vendor/kit-archive-core/SOURCE.md`
+  - core を直すときは Kit-Archive 側で直してコミットし、ML_MyTeam で取り込み直す
+- アーカイブページ（`/uniform/archive`）：3D 展示（`src/components/kits/KitArchiveStage.tsx`。three.js を含むので、ページを開いたときだけ読み込む）。視点・吊り下げ／着用形のボタン、選んだユニフォームの情報、シーズンごとの一覧
+- 管理画面（`/admin/kits`「3D キット」）：追加・編集・削除。シーズン・種別・バリエーション・キット画像（PNG）と、任意で ML のシーズン・2D 画像（サムネイル）へのひも付け
+- 3D を使わない画面は `kit-archive-core/data`（three.js を含まない入口）から読む
+- ダークモード（`html` の `.dark`）に合わせて展示の背景を変える（CSS 変数 `--kit-stage`）
+
 ### ハンガーバーと複数ユニフォーム（Phase 4）
 - 1着分のデータ（`kits.json` の `kits[]`、schemaVersion 3）
   - `id`（必須・一意）、`season`（"2026-27" など。未設定は null）、`seasonStartYear`（数値。省略時は season の最初の4桁）、`name`、`type`（Home / Away / Third / Cup / GK。未設定は null）、`variant`（任意）、`modelUrl`（必須。GLB の参照先）、`thumbnailUrl`（任意）、`hanger`（`{ visible }`）

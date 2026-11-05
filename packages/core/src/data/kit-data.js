@@ -160,7 +160,7 @@ export function newKitId(seasonStartYear, type, existing = new Set()) {
 //   userSource  ユーザーが追加した分（kit-storage.js の IndexedDB / claude.ai）。attachUserSource で後からつなぐ
 // ユーザーが追加した分は、保存に成功してから展示に反映する（保存に失敗したら展示しない）
 // 最初から展示している分（base）を画面で編集したときは、変えた項目だけを userSource に「上書き」として保存する
-//   { id: <base の id>, overridesBase: true, season, seasonStartYear, type, updatedAt }
+//   { id: <base の id>, overridesBase: true, season, seasonStartYear, type, collar, updatedAt }（collar は display.collar。古い上書きには無い）
 //   kits.json はそのまま。読み込むたびに kits.json の内容へ上書きを重ねる
 export const BASE_EDITABLE = Object.freeze(['season', 'seasonStartYear', 'type']);
 export class KitStore {
@@ -197,6 +197,7 @@ export class KitStore {
       const cur = this.kits.get(raw.id);
       if (!cur || this.origin.get(raw.id) !== 'base') { console.warn('上書き先のデータがありません:', raw.id); continue; }
       const patch = Object.fromEntries(BASE_EDITABLE.filter(k => k in raw).map(k => [k, raw[k]]));
+      if ('collar' in raw) patch.display = { ...cur.display, collar: raw.collar };
       const next = normalizeKit({ ...serializeKit(cur), ...patch, updatedAt: raw.updatedAt ?? cur.updatedAt });
       if (validateKit(next, new Set([...this.kits.keys()].filter(k => k !== raw.id))).errors.length) { console.warn('上書きを使いませんでした:', raw); continue; }
       this.overrides.set(raw.id, raw);
@@ -250,7 +251,7 @@ export class KitStore {
       catch (e) { return { ok: false, errors: ['保存に失敗しました'], cause: e }; }
     } else if (origin === 'base' && this.canAdd) {
       // kits.json は書き換えず、編集できる項目だけを上書きとして保存する（それ以外の項目の変更はメモリだけ）
-      const rec = { id, overridesBase: true, ...Object.fromEntries(BASE_EDITABLE.map(k => [k, next[k]])), updatedAt: next.updatedAt };
+      const rec = { id, overridesBase: true, ...Object.fromEntries(BASE_EDITABLE.map(k => [k, next[k]])), collar: next.display.collar, updatedAt: next.updatedAt };
       try { await this.userSource.put(rec); persisted = true; }
       catch (e) { return { ok: false, errors: ['保存に失敗しました'], cause: e }; }
       this.overrides.set(id, rec);

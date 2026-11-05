@@ -1,0 +1,3 @@
+# npm run dev:mock / build:mock 用（偽物の Supabase。接続情報ではない）
+VITE_SUPABASE_URL=http://fake-supabase.test
+VITE_SUPABASE_ANON_KEY=fake-anon-key

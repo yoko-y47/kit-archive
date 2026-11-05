@@ -42,6 +42,7 @@ export function createKitArchive(container, { store, resolveModelUrls = path => 
 
 // データ管理（3D に依存しない）
 export * from './data/kit-data.js';
+export * from './data/collars.js';
 export * from './data/rack-layout.js';
 export * from './data/sources/kit-storage.js';
 export * from './data/sources/supabase.js';

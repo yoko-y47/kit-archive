@@ -1,14 +1,8 @@
 // 操作パネル：形状・襟・動き・視点・テクスチャ差し替えのボタンと、操作の案内・情報欄
 // core からの通知（'hint' 'panel' 'info' 'load' 'shape' 'orbit'）を受けて表示を合わせる
-import { ctx, items, state, on, setView, setOrbit, deselectItem, setCollar, setShape, applyHangerVisibility, prepTexture, texLoader, resolveImageUrl, setTextureForTargets, modelCache, sim, shake, toggleWind, setPhysics } from 'kit-archive-core';
+import { ctx, items, state, on, setView, setOrbit, deselectItem, setCollar, COLLAR_STYLES, COLLAR_COUNT, setShape, applyHangerVisibility, prepTexture, texLoader, resolveImageUrl, setTextureForTargets, modelCache, sim, shake, toggleWind, setPhysics } from 'kit-archive-core';
 import { escapeHtml, setStatus } from './util.js';
 
-// collar_mapping.json の目視による推定名
-const COLLAR_STYLES = {
-  1: 'クルーネック', 2: 'Vネック', 3: '折り襟', 4: '折り襟＋前立て', 5: 'クルーネック（高め）',
-  6: 'Vネック（高め）', 7: 'クルーネック', 8: 'クルーネック', 9: '丸首＋前立て', 10: '前開きの折り襟',
-  11: '丸襟＋前立て', 12: 'ポロ襟＋前立て', 13: 'ポロ襟＋ボタン2個'
-};
 const showHangerEl = document.getElementById('showHanger'), showAxesEl = document.getElementById('showAxes');
 const collarBox = document.getElementById('collars');
 let kitStore = null;
@@ -19,7 +13,7 @@ export function initPanel(store) {
     const b = document.createElement('button');
     b.id = 'collar' + i; b.textContent = i; b.dataset.collar = i;
     b.setAttribute('aria-label', '襟 ' + i);
-    b.addEventListener('click', () => setCollar(i));
+    b.addEventListener('click', () => chooseCollar(i));
     collarBox.appendChild(b);
   }
   document.querySelectorAll('[data-orbit]').forEach(b => b.addEventListener('click', () => setOrbit(b.dataset.orbit)));
@@ -34,8 +28,8 @@ export function initPanel(store) {
     if (document.querySelector('dialog[open]')) return;   // 追加・編集画面を開いている間は、展示の操作をしない（Esc は画面を閉じる）
     if (e.target.closest && e.target.closest('input')) return;
     const cur = state.selectedItem ? state.selectedItem.collar : state.lastCollar;
-    if (e.key === 'ArrowRight') setCollar(cur % 13 + 1);
-    if (e.key === 'ArrowLeft') setCollar((cur + 11) % 13 + 1);
+    if (e.key === 'ArrowRight') chooseCollar(cur % COLLAR_COUNT + 1);
+    if (e.key === 'ArrowLeft') chooseCollar((cur + COLLAR_COUNT - 2) % COLLAR_COUNT + 1);
     if (e.key === 'Escape') deselectItem();
   });
 
@@ -65,6 +59,23 @@ export function initPanel(store) {
   on('orbit', mode => document.querySelectorAll('[data-orbit]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.orbit === mode))));
 }
 
+// 襟を選ぶ：選択中のユニフォームなら、そのデータの襟として保存する（矢印キーで続けて変えたときは最後の1回だけ）
+// 未選択のときは全ユニフォームの表示だけを変える
+const collarTimers = new Map();
+function chooseCollar(c) {
+  setCollar(c);
+  const it = state.selectedItem;
+  if (!it) return;
+  const id = it.data.id;
+  clearTimeout(collarTimers.get(id));
+  collarTimers.set(id, setTimeout(async () => {
+    collarTimers.delete(id);
+    if (kitStore.get(id)?.display.collar === c) return;
+    const r = await kitStore.update(id, { display: { collar: c } });
+    if (!r.ok) setStatus('襟を保存できませんでした：' + r.errors.join(' / '));
+  }, 500));
+}
+
 function applyTexture(url, name) {
   texLoader.load(url, tex => {
     prepTexture(tex);
@@ -91,7 +102,9 @@ export function updatePanel() {
   const c = state.selectedItem ? state.selectedItem.collar : null;
   collarBox.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.collar === c)));
   document.getElementById('collarBadge').textContent = c ? String(c).padStart(2, '0') : '';
-  document.getElementById('collarName').innerHTML = c ? `<b>${c}</b>${COLLAR_STYLES[c]}` : '<span class="hint">選択していないときは、全ユニフォームに適用します</span>';
+  document.getElementById('collarName').innerHTML = c
+    ? `<b>${c}</b>${COLLAR_STYLES[c]}<br><span class="hint">${kitStore.canAdd ? 'このユニフォームの襟として保存します' : '表示だけ切り替えます（保存先がないため保存しません）'}</span>`
+    : '<span class="hint">選択していないときは、全ユニフォームの表示だけ切り替えます（保存しません）</span>';
   updateInfo();
 }
 export function updateInfo() {

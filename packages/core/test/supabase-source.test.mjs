@@ -103,3 +103,36 @@ test('他のクラブのデータは読めず、書き込みも拒否される',
   assert.equal((await src.load()).length, 0);
   await assert.rejects(new SupabaseKitSource(c, OTHER_CLUB).put(normalizeKit({ id: 'k', name: 'n', modelUrl: 'm' })));
 });
+
+test('襟：Supabase の行に保存され、読み直しても同じ', async () => {
+  const c = fake();
+  await signIn(c);
+  const src = await SupabaseKitSource.open(c);
+  const store = new KitStore({ name: 'none', writable: false, load: async () => [] });
+  await store.load(); await store.attachUserSource(src);
+  const id = src.newId();
+  await store.add({ id, season: '2020-21', seasonStartYear: 2020, name: '2020-21 Home', type: 'Home', modelUrl: 'models/kit_hanging.glb', display: { collar: 12 } });
+  assert.equal(c._db.kits[0].collar, 12);
+  const r = await store.update(id, { display: { collar: 5 } });
+  assert.equal(r.ok, true);
+  assert.equal(c._db.kits[0].collar, 5);
+  const again = new KitStore({ name: 'none', writable: false, load: async () => [] });
+  await again.load(); await again.attachUserSource(await SupabaseKitSource.open(c));
+  assert.equal(again.get(id).display.collar, 5);
+});
+
+test('襟：最初からある展示（base）の襟の変更も上書きとして残る', async () => {
+  const saved = new Map();
+  const userSource = { name: 'mem', label: 'mem', writable: true, load: async () => [...saved.values()], put: async rec => { saved.set(rec.id, rec); } };
+  const base = { name: 'json', writable: false, load: async () => [{ id: 'placeholder-01', name: '仮データ 01', modelUrl: 'm', display: { collar: 2 }, placeholder: true }] };
+  const s1 = new KitStore(base); await s1.load(); await s1.attachUserSource(userSource);
+  await s1.update('placeholder-01', { display: { collar: 9 } });
+  assert.equal(saved.get('placeholder-01').collar, 9);
+  const s2 = new KitStore(base); await s2.load(); await s2.attachUserSource(userSource);
+  assert.equal(s2.get('placeholder-01').display.collar, 9);
+  // 襟を持たない古い上書きは、元の襟のまま
+  saved.set('placeholder-01', { id: 'placeholder-01', overridesBase: true, season: '2020-21', seasonStartYear: 2020, type: 'Home' });
+  const s3 = new KitStore(base); await s3.load(); await s3.attachUserSource(userSource);
+  assert.equal(s3.get('placeholder-01').display.collar, 2);
+  assert.equal(s3.get('placeholder-01').season, '2020-21');
+});

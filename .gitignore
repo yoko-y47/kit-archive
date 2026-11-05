@@ -17,3 +17,7 @@ dist-artifact/
 .env.local
 .env.*.local
 dist-mock/
+
+# macOS の同期などで自動で作られる複製（「名前 2.拡張子」）
+* 2.*
+* 2

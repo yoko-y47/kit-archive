@@ -15,6 +15,8 @@ export function initViewer(stage) {
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  // 表示先の要素いっぱいに広げる（使う側の CSS に頼らない）
+  Object.assign(renderer.domElement.style, { display: 'block', width: '100%', height: '100%' });
   stage.prepend(renderer.domElement);
 
   const scene = ctx.scene = new THREE.Scene();

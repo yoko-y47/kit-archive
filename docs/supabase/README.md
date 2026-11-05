@@ -5,6 +5,7 @@
 - テーブルを作る SQL：ML_MyTeam リポジトリの `supabase/migrations/20261105000000_kit_archive.sql`（ブランチ `kit-archive-schema`）
   - Supabase の管理は ML_MyTeam 側でしているため、migration もそちらに置く
 - **2026-11-05 にユーザーが本番の Supabase に適用済み。** 適用前・適用後の確認（[check_before_kits_migration.sql](check_before_kits_migration.sql) / [check_after_kits_migration.sql](check_after_kits_migration.sql)）はすべて ok
+  - 最初の適用は反映されておらず（適用後の確認の代わりに適用前の確認を実行していた）、`kits` が API から見えなかった。調べ方は [diagnose_kits_api.sql](diagnose_kits_api.sql)。適用し直して、単体版から本物の Supabase に 1 着登録・再読み込みで残ることを確かめた
 
 ## 決まっていること（2026-11-05）
 - 統合版・単体版とも、見るのも保存するのもログインが必要（個人用）。誰でも読める設定は作らない

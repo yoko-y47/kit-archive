@@ -77,6 +77,11 @@ npm workspaces。ルートで `npm install` のあと：
 - `apps/viewer`（単体版ビューア）：`index.html`（HTML と CSS）、`src/main.js`（組み立て）、`src/ui/`（`panel.js` 操作パネル・情報欄、`add-dialog.js` と `preview.js` 追加画面、`edit-dialog.js` 編集画面、`util.js`）、`public/`（`kits.json`、`models/*.glb`）
   - GLB の参照先はファイル名で `public/models/` のものに読み替える（`src/main.js` の `resolveModelUrls`）。以前のデータの `../export/kit_hanging.glb` もそのまま読める
 
+### 単体版の公開（GitHub Pages）
+- `.github/workflows/deploy.yml`：main に push すると `apps/viewer` をビルドして GitHub Pages に公開する（URL は https://yoko-y47.github.io/kit-archive/ ）
+- Supabase の接続先はリポジトリの Secrets（`VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY`。ML_MyTeam と同じ値）。ないときは公開しない（ブラウザ内保存の版になるのを防ぐ）
+- ML_MyTeam と同じ `yoko-y47.github.io` なので、どちらかでログインすると、もう片方もログインした状態で開ける
+
 ### ML_MyTeam への組み込み（Phase 5）
 - ML_MyTeam（`~/Desktop/master-league-club`）は、`kit-archive-core` をリポジトリ内の `vendor/kit-archive-core` にコピーして使う（Kit-Archive は非公開の別リポジトリで、GitHub Actions のビルドから取りに行けないため）
   - コピーは ML_MyTeam 側で `npm run sync:kit-archive`（`scripts/sync-kit-archive.mjs`）。GLB も `public/models` にコピーする。コピー元のコミットは `vendor/kit-archive-core/SOURCE.md`

@@ -25,7 +25,7 @@ export function initRack() {
   ctx.scene.fog = new THREE.Fog(0xffffff, 10, 30);
   syncFloor();
   listen(matchMedia('(prefers-color-scheme: dark)'), 'change', syncFloor);
-  const mo = new MutationObserver(syncFloor); mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] }); track(() => mo.disconnect());
+  const mo = new MutationObserver(syncFloor); mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'class'] }); track(() => mo.disconnect());
   state.rackLayout = computeRackLayout([]);
 }
 export function updateFog() {

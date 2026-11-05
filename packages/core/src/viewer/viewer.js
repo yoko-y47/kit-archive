@@ -21,7 +21,7 @@ export function initViewer(stage) {
   function syncTheme() { scene.background = new THREE.Color(ctx.options.background() || '#dfe3e8'); }
   syncTheme();
   listen(matchMedia('(prefers-color-scheme: dark)'), 'change', syncTheme);
-  const mo = new MutationObserver(syncTheme); mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] }); track(() => mo.disconnect());
+  const mo = new MutationObserver(syncTheme); mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'class'] });   // class：ML_MyTeam のダークモード（.dark） track(() => mo.disconnect());
 
   scene.add(new THREE.HemisphereLight(0xffffff, 0x50545c, 1.6));
   const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(1.2, 1.5, 2); scene.add(key);

@@ -8,9 +8,12 @@
     "dev": "vite",
     "build": "vite build",
     "build:artifact": "vite build --mode artifact --outDir dist-artifact --emptyOutDir && node scripts/build-artifact.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:mock": "vite --mode mock",
+    "build:mock": "vite build --mode mock --outDir dist-mock --emptyOutDir"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
     "kit-archive-core": "*",
     "three": "0.160.0"
   },

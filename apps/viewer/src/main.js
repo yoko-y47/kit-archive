@@ -15,9 +15,14 @@ function resolveModelUrls(path) {
   return import.meta.env.MODE === 'artifact' ? [`models/${name}.b64.txt`] : [`models/${name}`];
 }
 
-// ユニフォームのデータは kits.json（最初から展示している分。読み取り専用）と、
-// ユーザーが追加した分の保存先（kit-storage.js：claude.ai の保存機能、なければこのブラウザの IndexedDB）。コードには書かない
-const kitStore = new KitStore(new JsonFileSource('kits.json'));
+// 保存先は2通り（コードに接続情報は書かない）
+// - Supabase：VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY があるとき（claude.ai 公開用では使わない）。ログインして、そのクラブのデータだけを読み書きする
+// - それ以外：kits.json（最初から展示している分。読み取り専用）＋追加分（claude.ai の保存機能、なければこのブラウザの IndexedDB）
+const SUPABASE = import.meta.env.MODE !== 'artifact' && import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY
+  ? { url: import.meta.env.VITE_SUPABASE_URL, key: import.meta.env.VITE_SUPABASE_ANON_KEY } : null;
+const kitStore = new KitStore(SUPABASE
+  ? { name: 'supabase', label: 'Supabase', writable: false, empty: true, load: async () => [] }   // 展示は全部 Supabase の分（後から加える）
+  : new JsonFileSource('kits.json'));
 const archive = createKitArchive(document.getElementById('stage'), { store: kitStore, resolveModelUrls });
 initPanel(kitStore);
 initAddDialog(kitStore);
@@ -28,6 +33,7 @@ async function loadKits() {
   catch (err) { setStatus('kits.json を読み込めませんでした。ローカルではサーバー経由で開いてください。'); console.error(err); }
   setView('angle');
   updatePanel();
+  if (SUPABASE) return loadFromSupabase();
   // 追加したユニフォーム（展示中の7着はそのまま、後から加える）
   const src = await openUserSource();
   archive.setUserSource(src);
@@ -36,6 +42,19 @@ async function loadKits() {
     catch (err) { setStatus('追加したユニフォームを読み込めませんでした: ' + describeStorageError(err)); console.error(err); }
   }
   updateAddButton(); updateInfo();
+}
+async function loadFromSupabase() {
+  updateAddButton('ログインすると追加できます');
+  const { createSupabase, ensureSignedIn, openClubSource } = await import('./supabase-mode.js');
+  const client = createSupabase(SUPABASE.url, SUPABASE.key);
+  const user = await ensureSignedIn(client);
+  const { src, reason } = await openClubSource(client, user);
+  if (src) {
+    archive.setUserSource(src);
+    try { await kitStore.attachUserSource(src); setView('angle'); if (!kitStore.size) setStatus('このクラブのユニフォームはまだありません。右上の＋から追加できます'); }
+    catch (err) { setStatus('ユニフォームを読み込めませんでした: ' + describeStorageError(err)); console.error(err); }
+  }
+  updateAddButton(reason); updateInfo();
 }
 
 // テスト用（開発時の確認に使う）

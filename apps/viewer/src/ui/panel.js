@@ -102,8 +102,10 @@ export function updateInfo() {
     el.innerHTML = `ハンガーバー <b>${items.length}</b> 着／バーの長さ <b>${state.rackLayout.rail.length.toFixed(1)}</b> m（端はぼかし）<br>` +
       `読み込み済み <b>${items.filter(i => i.kit).length}</b> 着／GLB <b>${modelCache.size}</b> 種類（共有）<br>` +
       (ph ? `仮データ <b>${ph}</b> 着（シーズン・カテゴリ未設定）<br>` : '') +
-      `データ ${escapeHtml(kitStore.source.name)}（読み取り専用）` +
-      (state.userSource ? `＋追加分 <b>${kitStore.list().filter(k => kitStore.originOf(k.id) === 'user').length}</b> 着：${escapeHtml(state.userSource.label)}${state.userSource.writable ? '' : '（読み取り専用）'}` : '＋追加分の保存先なし') +
+      (kitStore.source.empty
+        ? `データ ${escapeHtml(state.userSource?.label ?? kitStore.source.label)}：<b>${kitStore.size}</b> 着`
+        : `データ ${escapeHtml(kitStore.source.name)}（読み取り専用）` +
+      (state.userSource ? `＋追加分 <b>${kitStore.list().filter(k => kitStore.originOf(k.id) === 'user').length}</b> 着：${escapeHtml(state.userSource.label)}${state.userSource.writable ? '' : '（読み取り専用）'}` : '＋追加分の保存先なし')) +
       `<br>奥が古いシーズン、手前が新しいシーズン`;
     return;
   }

@@ -50,6 +50,9 @@ setCollar(2);
 npm workspaces。ルートで `npm install` のあと：
 - `npm run dev`：単体版を開発用サーバーで開く（apps/viewer）
 - `npm run build`：単体版を `apps/viewer/dist/` に書き出す（GitHub Pages などにそのまま置ける。`base: './'`）
+- `npm test -w packages/core`：Supabase の保存先のテスト（本物には接続しない）
+- `npm run dev:mock -w apps/viewer`：Supabase に保存する版の画面を、偽物の Supabase で確かめる
+- Supabase に保存する版：`apps/viewer/.env.local` に接続先を入れてからビルドする（`docs/supabase/README.md`）
 - `npm run build:artifact`：claude.ai 公開用を `apps/viewer/dist-artifact/` に書き出す。GLB は配信できないため `models/*.glb.b64.txt` に置き換え、ページの骨組み（doctype〜body）を外す（`apps/viewer/scripts/build-artifact.mjs`）。公開は `dist-artifact/index.html` をページ、`assets/*.js`・`kits.json`・`models/*.b64.txt` を同じ相対パスのファイルとして載せる
 - GLB を作り直したら `export/*.glb` を `apps/viewer/public/models/` にコピーしてからビルドする
 
@@ -62,6 +65,8 @@ npm workspaces。ルートで `npm install` のあと：
   - `src/data/kit-data.js`：データ構造の正規化・検証・並び順と、`KitStore`（追加・更新・削除と変更通知）。保存先（source）は差し替え式。データベースにつなぐときは同じ形の source を作って渡す。接続情報はコードに書かない
   - `src/data/rack-layout.js`：配置計算。並べ替え済みの配列から、各ユニフォームの位置・レールの範囲・視点を返す `computeRackLayout`
   - `src/data/sources/kit-storage.js`：追加分の保存先（IndexedDB / claude.ai）
+  - `src/data/sources/supabase.js`：Supabase の保存先 `SupabaseKitSource`（kits テーブル・kit-textures バケット）
+  - `src/data/index.js`（`kit-archive-core/data`）：データ管理だけの入口（3D・DOM に依存しない）
   - `src/viewer/`（Phase 1 で index.html から切り出した 3D 展示。DOM は表示先の要素だけを使い、画面への反映は通知で行う）
     - `context.js`：共有するもの（描画・シーン・カメラ・操作の `ctx`、展示中の `items`、選択などの `state`）と通知
     - `viewer.js`：描画・光・カメラを作り、ラック・入力・描画ループを始める（`initViewer` / `destroyViewer`）

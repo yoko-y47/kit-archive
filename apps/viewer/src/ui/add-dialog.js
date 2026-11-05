@@ -25,9 +25,10 @@ export function initAddDialog(store) {
   }
   addBtn.addEventListener('click', () => {
     if (!kitStore.canAdd) return;
-    $('addWhere').textContent = state.userSource.name === 'claude.ai'
-      ? '保存先：claude.ai（このアーティファクト）。再読み込み後も残り、このアーティファクトを開いた人にも表示されます'
-      : '保存先：このブラウザ（IndexedDB）。再読み込み後も残りますが、この端末のこのブラウザだけに保存されます（サイトのデータを消すと消えます）';
+    $('addWhere').textContent = {
+      'claude.ai': '保存先：claude.ai（このアーティファクト）。再読み込み後も残り、このアーティファクトを開いた人にも表示されます',
+      supabase: `保存先：${state.userSource.label}。ML_MyTeam の統合版と同じデータです（このクラブの所有者だけが見られます）`
+    }[state.userSource.name] ?? '保存先：このブラウザ（IndexedDB）。再読み込み後も残りますが、この端末のこのブラウザだけに保存されます（サイトのデータを消すと消えます）';
     addDialog.showModal();
     startPreview();
     if (!pv.obj) loadModelRecord(STANDARD_MODEL.hanging)
@@ -96,9 +97,11 @@ export function initAddDialog(store) {
   });
 }
 
-export function updateAddButton() {
+// reason：追加できない理由をアプリが決めるとき（Supabase でクラブがないなど）
+export function updateAddButton(reason) {
   addBtn.disabled = !kitStore.canAdd;
   addBtn.title = kitStore.canAdd ? 'ユニフォームを追加'
+    : reason ? reason
     : state.userSource ? 'このアーティファクトを編集する権限がないため、追加できません'
     : '保存先（IndexedDB）を使えないため、追加できません（プライベートウィンドウなど）';
 }
@@ -120,7 +123,8 @@ async function register({ season, year, type, name }) {
   try {
     try { texUrl = await state.userSource.putFile(file, 'image'); }
     catch (err) { throw Object.assign(new Error('キット画像を保存できませんでした：' + describeStorageError(err)), { cause: err }); }
-    const id = newKitId(year, type, new Set(kitStore.list().map(k => k.id)));
+    // 保存先が id の形を決めるとき（Supabase は uuid）はそれを使う
+    const id = state.userSource.newId ? state.userSource.newId() : newKitId(year, type, new Set(kitStore.list().map(k => k.id)));
     // 読み込み済みの画像をそのまま展示に使う（登録直後にもう一度読み込まない）
     texCache.set(texUrl, Promise.resolve(texture));
     const r = await kitStore.add({

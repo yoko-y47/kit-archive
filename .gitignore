@@ -12,3 +12,8 @@ node_modules/
 # npm / Vite
 dist/
 dist-artifact/
+
+# 接続情報（Supabase の URL・キー）。見本の .env.local.example だけを入れる
+.env.local
+.env.*.local
+dist-mock/

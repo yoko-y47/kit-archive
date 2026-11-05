@@ -10,7 +10,7 @@ export const MAX_THUMB_BYTES = 5 * 1024 * 1024;       // サムネイル画像�
 export const THUMB_TYPES = ['image/png', 'image/jpeg', 'image/webp'];
 export const MAX_TEXTURE_BYTES = 16 * 1024 * 1024;   // キット画像（PNG）の上限（claude.ai の 1 ファイル 20MB の上限に収まる大きさ）
 
-export const isStoredUrl = url => /^(idb|asset):/.test(String(url ?? ''));
+export const isStoredUrl = url => /^(idb|asset|sb):/.test(String(url ?? ''));   // sb: は supabase.js（Supabase のバケット）
 
 const newId = () => (crypto.randomUUID ? crypto.randomUUID().replace(/-/g, '') : Date.now().toString(36) + Math.random().toString(36).slice(2));
 

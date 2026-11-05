@@ -4,7 +4,7 @@
 
 - テーブルを作る SQL：ML_MyTeam リポジトリの `supabase/migrations/20261105000000_kit_archive.sql`（ブランチ `kit-archive-schema`）
   - Supabase の管理は ML_MyTeam 側でしているため、migration もそちらに置く
-- **まだ適用していない。** 適用するかどうか・いつ適用するかはユーザーが決める
+- **2026-11-05 にユーザーが本番の Supabase に適用済み。** 適用前・適用後の確認（[check_before_kits_migration.sql](check_before_kits_migration.sql) / [check_after_kits_migration.sql](check_after_kits_migration.sql)）はすべて ok
 
 ## 決まっていること（2026-11-05）
 - 統合版・単体版とも、見るのも保存するのもログインが必要（個人用）。誰でも読める設定は作らない
@@ -63,10 +63,16 @@ drop policy if exists "kit_textures_owner_delete" on storage.objects;
 -- バケットは、中のファイルをダッシュボードで消してから削除する
 ```
 
-## 次（Phase 4）でアプリ側に足すもの
-- `kit-archive-core` に Supabase 用の保存先（`SupabaseSource`）：`kits` の行 ⇔ core のデータの読み替え（上の表）と、キット画像のアップロード・署名付き URL
-- 接続情報（URL・anon key）はコードに書かず、ビルド時の環境変数（`VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY`。ML_MyTeam と同じ名前）から渡す
-- 単体版のログイン画面（Supabase Auth。ML_MyTeam と同じアカウント）。クラブがない人の扱いは未定
+## アプリ側（Phase 4）
+- `kit-archive-core` の `SupabaseKitSource`（`packages/core/src/data/sources/supabase.js`）：上の表のとおり `kits` の行 ⇔ core のデータを読み替える（`rowToKit` / `kitToRow`）。キット画像は `kit-textures` の `<club_id>/<uuid>.png` に保存し、データからは `sb:<パス>` で指す。表示は署名付き URL（1時間）
+  - Supabase のクライアントは使う側が作って渡す（core は `@supabase/supabase-js` に依存しない）。ML_MyTeam の統合版も同じものを使える
+  - `SupabaseKitSource.open(client)`：ログイン中の人が所有するクラブを探して開く（クラブがなければ `code: 'no_club'` のエラー）
+- 単体版（`apps/viewer`）：`apps/viewer/.env.local` に `VITE_SUPABASE_URL` と `VITE_SUPABASE_ANON_KEY` を入れてビルドすると、Supabase に保存する版になる（見本：`apps/viewer/.env.local.example`。`.env.local` は Git に入らない）
+  - 開くとログイン画面（ML_MyTeam と同じアカウント。アカウントの作成は ML_MyTeam で行う）。ログイン後は、そのアカウントのクラブのユニフォームだけを表示・追加・編集する。情報欄にアカウントとログアウト
+  - クラブがないアカウントでは「ML_MyTeam でクラブを作ってください」と出し、追加できない
+  - 2つとも空なら、今までどおり kits.json ＋ブラウザ内（IndexedDB）。claude.ai 公開用（`build:artifact`）では Supabase を使わない（公開ページから外部に接続できないため）
+- 確認：`npm test -w packages/core`（偽物のクライアント `packages/core/test/fake-supabase.js` で、読み替え・追加・編集・削除・画像・他クラブの拒否を確かめる）。画面は `npm run dev:mock -w apps/viewer`（偽物の Supabase。テスト用のアカウントは `apps/viewer/test/fake-supabase-client.js`）
+- 仮データ 01〜07 は Supabase にはまだ入っていない。入れるなら [seed_placeholders_draft.sql](seed_placeholders_draft.sql)（クラブの id を入れてから SQL Editor で）
 
 ## 不明・未確認
 - Supabase 無料プランのストレージ容量・1ファイルの上限の正確な値（料金ページで確認が必要）

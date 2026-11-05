@@ -4,7 +4,17 @@
   "description": "Kit Archive の 3D 展示（ハンガーバー・布の揺れ）とユニフォームのデータ管理",
   "private": true,
   "type": "module",
-  "exports": { ".": "./src/index.js" },
-  "files": ["src"],
-  "peerDependencies": { "three": "0.160.0" }
+  "exports": {
+    ".": "./src/index.js",
+    "./data": "./src/data/index.js"
+  },
+  "files": [
+    "src"
+  ],
+  "peerDependencies": {
+    "three": "0.160.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
 }

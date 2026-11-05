@@ -42,6 +42,7 @@ export function normalizeCategory(type) {
 //   placeholder: boolean           仮データ（実際のシーズン・カテゴリなどが未確認）
 //   sortHint: number               シーズン・カテゴリ・バリエーションが同じときの並び（任意、既定 0）
 //   createdAt / updatedAt: string | null  ISO 日時（任意。データベース移行用）
+//   seasonId / legacyUniformId: string | null  Supabase の seasons / uniforms へのひも付け（統合版。任意）
 // }
 export function normalizeKit(raw) {
   const r = raw || {};
@@ -72,7 +73,10 @@ export function normalizeKit(raw) {
     placeholder: r.placeholder === true,
     sortHint: Number.isFinite(+r.sortHint) ? +r.sortHint : 0,
     createdAt: r.createdAt ?? null,
-    updatedAt: r.updatedAt ?? null
+    updatedAt: r.updatedAt ?? null,
+    // Supabase の kits だけが使う（統合版でのひも付け）。ほかの保存先では null のまま
+    seasonId: r.seasonId ?? null,
+    legacyUniformId: r.legacyUniformId ?? null
   };
 }
 // 保存用の形（typeRaw など内部の値を除く）

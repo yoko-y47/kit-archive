@@ -44,6 +44,7 @@ export function createKitArchive(container, { store, resolveModelUrls = path => 
 export * from './data/kit-data.js';
 export * from './data/rack-layout.js';
 export * from './data/sources/kit-storage.js';
+export * from './data/sources/supabase.js';
 
 // 画面を作るときに使う、もう少し細かい部品（単体版のビューア画面が使う）
 export { ctx, items, state, on, css } from './viewer/context.js';

@@ -6,7 +6,7 @@ import { setView } from './view.js';
 import { initRack, updateFog } from './rack.js';
 import { initInput } from './input.js';
 import { updateItems } from './display-items.js';
-import { sim, stepSim, updateSpin, runPendingRebuild, restoreRest, resetSim } from './cloth.js';
+import { stepSim, swayRack, updateSpin, runPendingRebuild, restoreRest, resetSim } from './cloth.js';
 import { removeKitItem, texCache } from './kits.js';
 import { modelCache } from './models.js';
 
@@ -50,7 +50,7 @@ export function initViewer(stage) {
     runPendingRebuild();
     updateItems(dt);
     updateSpin(dt);
-    if (sim.built) stepSim(dt);
+    stepSim(dt); swayRack();
     controls.update(); updateFog(); renderer.render(scene, camera);
   });
 }
@@ -69,6 +69,6 @@ export function destroyViewer() {
   renderer.dispose(); renderer.domElement.remove();
   resetSim();
   clearListeners();   // on で登録した通知も外す（作り直したら登録し直す）
-  Object.assign(state, { selectedItem: null, simItem: null, grab: null, shape: 'hanging', lastCollar: 2, autoRotateWanted: false, showHanger: true, showAxes: false, rackLayout: null, userSource: null });
+  Object.assign(state, { selectedItem: null, simItem: null, grab: null, lastCollar: 2, autoRotateWanted: false, showHanger: true, showAxes: false, rackLayout: null, userSource: null });
   Object.assign(ctx, { renderer: null, scene: null, camera: null, controls: null, canvas: null, stage: null, options: null });
 }

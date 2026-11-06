@@ -182,27 +182,14 @@
     </div>
 
     <section>
-      <h2>形状 SHAPE</h2>
-      <div class="row">
-        <button id="shapeHanging" data-shape="hanging" aria-pressed="true">吊り下げ</button>
-        <button id="shapeWorn" data-shape="worn" aria-pressed="false">着用形</button>
-      </div>
-    </section>
-
-    <section>
       <h2>襟 COLLAR <kbd>←</kbd> <kbd>→</kbd></h2>
       <div class="grid" id="collars"></div>
       <div class="collarName" id="collarName"></div>
     </section>
 
     <section>
-      <h2>動き MOTION</h2>
-      <div class="row">
-        <button id="shake">揺らす</button>
-        <button id="windBtn" aria-pressed="false">風</button>
-      </div>
-      <label class="check"><input type="checkbox" id="physics" checked> 布の揺れを計算する</label>
-      <div class="hint">布の揺れは選択中のユニフォームだけ計算します。選択中のシャツをドラッグすると引っ張れます（吊り下げ形のみ）</div>
+      <h2>操作 HOW TO</h2>
+      <div class="hint">ユニフォームはいつも風に揺れています。拡大中のシャツはドラッグで少し引っ張れます</div>
       <div class="hint">ユニフォームをクリックすると中央に拡大。拡大中のクリックで前後を切り替え、背景クリックか Esc でラックに戻ります</div>
     </section>
 
@@ -287,7 +274,7 @@
       <div class="fileInfo" id="texInfo"></div>
       <div class="fieldErr" id="errTex"></div>
     </div>
-    <div class="hint">GLB は標準のユニフォーム（吊り下げ形・着用形）を自動で使います。名前は「シーズン 種別」で自動で付けます</div>
+    <div class="hint">GLB は標準のユニフォームを自動で使います。名前は「シーズン 種別」で自動で付けます</div>
     <div class="notice warn" id="addWarn" hidden></div>
     <div class="notice err" id="addError" role="alert" hidden></div>
     <div class="hint" id="addWhere"></div>

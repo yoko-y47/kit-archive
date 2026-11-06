@@ -1,6 +1,6 @@
-// 操作パネル：形状・襟・動き・視点・テクスチャ差し替えのボタンと、操作の案内・情報欄
-// core からの通知（'hint' 'panel' 'info' 'load' 'shape' 'orbit'）を受けて表示を合わせる
-import { ctx, items, state, on, setView, setOrbit, deselectItem, setCollar, COLLAR_STYLES, COLLAR_COUNT, setShape, applyHangerVisibility, prepTexture, texLoader, resolveImageUrl, setTextureForTargets, modelCache, sim, shake, toggleWind, setPhysics } from 'kit-archive-core';
+// 操作パネル：襟・視点・テクスチャ差し替えのボタンと、操作の案内・情報欄
+// core からの通知（'hint' 'panel' 'info' 'load' 'orbit'）を受けて表示を合わせる
+import { ctx, items, state, on, setView, setOrbit, deselectItem, setCollar, COLLAR_STYLES, COLLAR_COUNT, applyHangerVisibility, prepTexture, texLoader, resolveImageUrl, setTextureForTargets, modelCache, sim } from 'kit-archive-core';
 import { escapeHtml, setStatus } from './util.js';
 
 const showHangerEl = document.getElementById('showHanger'), showAxesEl = document.getElementById('showAxes');
@@ -17,7 +17,6 @@ export function initPanel(store) {
     collarBox.appendChild(b);
   }
   document.querySelectorAll('[data-orbit]').forEach(b => b.addEventListener('click', () => setOrbit(b.dataset.orbit)));
-  document.querySelectorAll('[data-shape]').forEach(b => b.addEventListener('click', () => setShape(b.dataset.shape)));
   showHangerEl.addEventListener('change', () => { state.showHanger = showHangerEl.checked; items.forEach(applyHangerVisibility); });
   showAxesEl.addEventListener('change', e => { state.showAxes = e.target.checked; items.forEach(it => { if (it.axes) it.axes.visible = e.target.checked; }); });
   document.getElementById('spin').addEventListener('change', e => { state.autoRotateWanted = e.target.checked; ctx.controls.autoRotate = state.autoRotateWanted && !state.selectedItem; });
@@ -43,19 +42,11 @@ export function initPanel(store) {
   drop.addEventListener('dragleave', () => drop.classList.remove('over'));
   drop.addEventListener('drop', e => { e.preventDefault(); drop.classList.remove('over'); e.dataTransfer.files[0] && loadFile(e.dataTransfer.files[0]); });
 
-  document.getElementById('shake').addEventListener('click', () => {
-    if (!shake()) setStatus('ユニフォームを選択すると揺らせます（布の揺れは選択中の1着だけ計算します）');
-  });
-  document.getElementById('windBtn').addEventListener('click', e => {
-    e.currentTarget.setAttribute('aria-pressed', String(toggleWind()));
-  });
-  document.getElementById('physics').addEventListener('change', e => setPhysics(e.target.checked));
 
   on('hint', updateHint);
   on('panel', updatePanel);
   on('info', updateInfo);
   on('load', updateLoadStatus);
-  on('shape', s => document.querySelectorAll('[data-shape]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.shape === s))));
   on('orbit', mode => document.querySelectorAll('[data-orbit]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.orbit === mode))));
 }
 
@@ -129,7 +120,7 @@ export function updateInfo() {
     `<b>${escapeHtml(d.name)}</b>${d.placeholder ? '（仮データ）' : ''}<br>` +
     `シーズン <b>${escapeHtml(d.season ?? '未設定')}</b>／カテゴリ <b>${escapeHtml(d.type ?? '未設定')}</b>` +
     (d.variant !== null ? `／<b>${escapeHtml(d.variant)}</b>` : '') + `<br>レールの手前から <b>${it.frontIndex + 1}</b> 番目（${items.length} 着中）<br>` +
-    `ID ${escapeHtml(d.id)}<br>GLB ${escapeHtml(it.shape === 'worn' ? d.modelUrlWorn : d.modelUrl)}${it.model?.foreign ? '（大きさ・位置を自動で合わせた GLB）' : ''}<br>` +
+    `ID ${escapeHtml(d.id)}<br>GLB ${escapeHtml(d.modelUrl)}${it.model?.foreign ? '（大きさ・位置を自動で合わせた GLB）' : ''}<br>` +
     `保存先 ${origin === 'user' ? escapeHtml(state.userSource.label) : origin === 'memory' ? 'なし（再読み込みで消えます）' : 'kits.json' + (kitStore.isEdited(d.id) ? `（シーズン・種別は編集済み：${escapeHtml(state.userSource.label)}）` : '')}<br>` +
     `表示中 <b>${meshes}</b> メッシュ／<b>${tris.toLocaleString()}</b> 三角形` +
     (sim.built ? `<br>布の計算 <b>${sim.n.toLocaleString()}</b> 点／固定 <b>${sim.pinned}</b> 点` : '');

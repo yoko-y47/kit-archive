@@ -1,4 +1,5 @@
-// 布の揺れ：選択中の1着だけを計算する（Position Based Dynamics）
+// 布の揺れ：選択中の1着だけを計算する（Position Based Dynamics）。風は常に吹いている
+// ラックに掛かったままのユニフォームは、布は計算せず、ハンガーごと風で小さく揺らす（swayRack）
 import * as THREE from 'three';
 import { ctx, items, state, emit } from './context.js';
 import { contentMatrix } from './display-items.js';
@@ -6,7 +7,7 @@ import { contentMatrix } from './display-items.js';
 // ---- 布の揺れ（Position Based Dynamics による簡易クロスシミュレーション） ----
 // 吊り下げ形をそのまま静止形として使う。肩上端（ハンガー接触部）は固定し、
 // それ以外は慣性・布の伸び縮み・曲げ・減衰で動く。静止形からのずれは弱いばねで戻す。
-export const sim = { on: true, wind: false, built: false, n: 0, pinned: 0, links: [] };
+export const sim = { built: false, n: 0, pinned: 0, links: [] };
 export const swing = { ax: 0, az: 0, vx: 0, vz: 0 };
 const PEND_W2 = 9.8 / 0.35, PEND_ZETA = 0.06;   // ハンガーごと揺れる振り子（長さ約35cm）
 // ドラッグで視点を水平に回すと、シャツをハンガーごとフックの軸まわりに回したものとして布に慣性をかける
@@ -14,6 +15,7 @@ const PEND_W2 = 9.8 / 0.35, PEND_ZETA = 0.06;   // ハンガーごと揺れる�
 export const spin = { w: 0, a: 0, az: null };
 const SPIN_W_MAX = 6, SPIN_A_MAX = 40;
 const SUBSTEPS = 2, ITERS = 6, DAMP = 0.985, GOAL = 0.02, BEND_K = 0.25;
+const MAX_PULL = 0.05;   // 布を引っ張ったとき、掴んだ点が元の位置から離れられる距離（m）
 let rebuildPending = false;
 export function scheduleRebuild() { rebuildPending = true; }
 // 描画ループから毎フレーム呼ぶ：作り直しの予約があれば作り直す
@@ -37,8 +39,9 @@ export function restoreRest() {
 export function buildSim() {
   restoreRest();
   const it = state.selectedItem || items.find(i => i.state === 'returning');
-  if (!it || !it.kitRoot || it.shape !== 'hanging' || !sim.on) { emit('info'); return; }
+  if (!it || !it.kitRoot) { emit('info'); return; }
   state.simItem = it; const r = it.kitRoot;
+  it.content.position.set(0, 0, 0); it.content.rotation.set(0, 0, 0);   // ラックでの風の揺れをやめ、ハンガーの振り子に任せる
   it.group.updateMatrixWorld(true);
   const meshes = [];
   r.traverse(o => { if (o.isMesh && shownIn(o, r)) meshes.push(o); });
@@ -138,17 +141,20 @@ export function buildSim() {
 
 const _R = new THREE.Matrix4(), _e = new THREE.Euler();
 let simTime = 0;
+// 風の強さ（時間でゆるやかに変わる。負は奥向き）
+const windAt = t => -1.2 * (0.6 + 0.4 * Math.sin(t * 1.7) + 0.3 * Math.sin(t * 4.3 + 1.0));
 export function stepSim(dt) {
   if (!(dt > 0)) return;   // 同じ時刻にフレームが重なると dt=0 になり、慣性力の計算が 0 除算になる
-  // ハンガーの振り子運動
+  // ハンガーの振り子運動（風で前後に少し押される）
+  const wind = windAt(simTime), push = { vx: -0.05 * wind, vz: 0 };
   for (const [a, vv] of [['ax', 'vx'], ['az', 'vz']]) {
-    swing[vv] += (-PEND_W2 * swing[a] - 2 * PEND_ZETA * Math.sqrt(PEND_W2) * swing[vv]) * dt;
+    swing[vv] += (-PEND_W2 * swing[a] - 2 * PEND_ZETA * Math.sqrt(PEND_W2) * swing[vv] + push[vv]) * dt;
     swing[a] += swing[vv] * dt;
   }
   if (state.simItem) state.simItem.hangerPivot.rotation.set(swing.ax, 0, swing.az);
   _R.makeRotationFromEuler(_e.set(swing.ax, 0, swing.az));
-  if (!sim.built) return;
   simTime += dt;
+  if (!sim.built) return;
   const { pos, prev, rest, goal, invMass, cons, cK, cRest, n } = sim;
   // 静止形をハンガーの傾きに合わせて回した位置（目標位置）を1フレームに1回だけ計算
   const m = _R.elements, P0 = state.simItem.pivot, px = P0.x, py = P0.y, pz = P0.z;
@@ -160,20 +166,26 @@ export function stepSim(dt) {
   }
   // 静止形は重力と釣り合っている前提なので、ハンガーが傾いた分の重力だけをかける（g − R·g）
   const gx = 9.8 * m[4], gy = -9.8 + 9.8 * m[5], gz = 9.8 * m[6];
-  const wind = sim.wind ? -1.2 * (0.6 + 0.4 * Math.sin(simTime * 1.7) + 0.3 * Math.sin(simTime * 4.3 + 1.0)) : 0;
   const h = dt / SUBSTEPS, h2 = h * h, nc = cRest.length;
   const gi = state.grab ? 3 * state.grab.i : -1;
+  // 掴んだ点は、元の位置から MAX_PULL までしか動かさない（布が伸びすぎないように）
+  let tx = 0, ty = 0, tz = 0;
+  if (gi >= 0) {
+    const t = state.grab.target, dx = t.x - goal[gi], dy = t.y - goal[gi + 1], dz = t.z - goal[gi + 2];
+    const d = Math.hypot(dx, dy, dz), k = d > MAX_PULL ? MAX_PULL / d : 1;
+    tx = goal[gi] + dx * k; ty = goal[gi + 1] + dy * k; tz = goal[gi + 2] + dz * k;
+  }
   // 回転する枠で見た慣性力：遠心力 ω²r、回転の加減速による力 −α×r、コリオリの力 −2ω×v（軸は鉛直、支点を通る）
   const sw = spin.w, sa = spin.a, sw2 = sw * sw, cor = 2 * sw / h;
   for (let s = 0; s < SUBSTEPS; s++) {
     for (let j = 0, i = 0; i < n; i++, j += 3) {
       if (invMass[i] === 0) {
-        if (j === gi) { pos[j] = state.grab.target.x; pos[j + 1] = state.grab.target.y; pos[j + 2] = state.grab.target.z; }
+        if (j === gi) { pos[j] = tx; pos[j + 1] = ty; pos[j + 2] = tz; }
         else { pos[j] = goal[j]; pos[j + 1] = goal[j + 1]; pos[j + 2] = goal[j + 2]; }
         prev[j] = pos[j]; prev[j + 1] = pos[j + 1]; prev[j + 2] = pos[j + 2];
         continue;
       }
-      const flutter = wind ? wind * (0.7 + 0.3 * Math.sin(pos[j] * 9 + pos[j + 1] * 7 + simTime * 3)) : 0;
+      const flutter = wind * (0.7 + 0.3 * Math.sin(pos[j] * 9 + pos[j + 1] * 7 + simTime * 3));
       const vx = (pos[j] - prev[j]) * DAMP, vy = (pos[j + 1] - prev[j + 1]) * DAMP, vz = (pos[j + 2] - prev[j + 2]) * DAMP;
       prev[j] = pos[j]; prev[j + 1] = pos[j + 1]; prev[j + 2] = pos[j + 2];
       const rx = pos[j] - px, rz = pos[j + 2] - pz;
@@ -258,21 +270,24 @@ export function updateSpin(dt) {
   spin.a = Math.max(-SPIN_A_MAX, Math.min(SPIN_A_MAX, (wf - spin.w) / dt));
   spin.w = wf;
 }
-// 「揺らす」：ハンガーごと前後に揺らす（布を計算していないときは false）
-export function shake() {
-  if (!sim.built) return false;
-  swing.vx += (Math.random() < 0.5 ? -1 : 1) * (0.8 + Math.random() * 0.4);   // 前後に約8〜12°
-  swing.vz += (Math.random() - 0.5) * 0.5;
-  return true;
+// ラックに掛かったままのユニフォーム：ハンガーのフックを支点に、アイテムごとに少しずつずらして風で揺らす
+const SWAY = 0.012;   // 揺れの大きさ（rad、約0.7°）
+const _q = new THREE.Quaternion(), _p = new THREE.Vector3();
+export function swayRack() {
+  const t = simTime;
+  for (let i = 0; i < items.length; i++) {
+    const it = items[i];
+    if (!it.kit || it === state.simItem || !it.pivot) continue;
+    const ph = i * 1.37, w = windAt(t - ph * 0.15) / -1.2;   // 0.1〜1.3 くらい。奥の列ほど少し遅れて風が届く
+    const ax = SWAY * (0.5 * w + 0.35 * Math.sin(t * 1.1 + ph)), az = SWAY * 0.4 * Math.sin(t * 0.8 + ph * 1.9);
+    _q.setFromEuler(_e.set(ax, 0, az));
+    it.content.quaternion.copy(_q);
+    it.content.position.copy(it.pivot).sub(_p.copy(it.pivot).applyQuaternion(_q));   // 支点（フック）が動かないように
+  }
 }
-// 「風」の切り替え。切り替えた後の状態を返す
-export function toggleWind() { sim.wind = !sim.wind; return sim.wind; }
-// 「布の揺れを計算する」
-export function setPhysics(on) { sim.on = on; scheduleRebuild(); }
 // 片付け（destroyViewer）：揺れ・風・作り直しの予約を最初の状態に戻す
 export function resetSim() {
   rebuildPending = false; simTime = 0;
-  Object.assign(sim, { on: true, wind: false });
   Object.assign(swing, { ax: 0, az: 0, vx: 0, vz: 0 });
   Object.assign(spin, { w: 0, a: 0, az: null });
 }

@@ -15,7 +15,6 @@ export const state = {
   selectedItem: null,      // 選択中（拡大中）のアイテム
   simItem: null,           // 布を計算しているアイテム
   grab: null,              // 掴んでいる布の点
-  shape: 'hanging',        // 'hanging' | 'worn'
   lastCollar: 2,           // 最後に選んだ襟（新しく作るアイテムに使う）
   autoRotateWanted: false, // 「自動回転」のチェック
   showHanger: true,        // 「ハンガーを表示」のチェック
@@ -23,7 +22,7 @@ export const state = {
   rackLayout: null,        // rack-layout.js の計算結果
   userSource: null         // 追加分の保存先（kit-storage.js）
 };
-// 通知の種類：'hint'（操作の案内）'panel'（襟・情報欄）'info'（情報欄）'load'（読み込み状況）'shape' 'orbit'
+// 通知の種類：'hint'（操作の案内）'panel'（襟・情報欄）'info'（情報欄）'load'（読み込み状況）'orbit'
 const listeners = new Map();
 export function on(type, fn) {
   if (!listeners.has(type)) listeners.set(type, new Set());

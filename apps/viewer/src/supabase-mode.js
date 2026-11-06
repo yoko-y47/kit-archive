@@ -124,11 +124,11 @@ function askNewPassword(client) {
 // ログイン中の人のアーカイブを開く（なければ作る）。開けないときは { reason } を返す（展示は空のまま）
 export async function openArchiveSource(client, user) {
   $('account').hidden = false;
-  $('accountName').textContent = user.email ?? '';
+  $('accountName').textContent = '';   // メールアドレスは画面に出さない（アーカイブ名だけ）
   $('signOut').addEventListener('click', async () => { await client.auth.signOut(); location.reload(); });
   try {
     const src = await SupabaseKitSource.open(client);
-    $('accountName').textContent = `${user.email ?? ''}（${src.archive.name}）`;
+    $('accountName').textContent = src.archive.name;
     return { src };
   } catch (err) {
     console.error(err);

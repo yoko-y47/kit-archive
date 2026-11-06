@@ -46,14 +46,15 @@ export function applyCollar(item) {
   item.worldBox = null;
   if (item === state.simItem) scheduleRebuild();
 }
-export async function setItemShape(item, s) {
-  item.wantShape = s;
-  const worn = s === 'worn' && item.data.modelUrlWorn, path = worn ? item.data.modelUrlWorn : item.data.modelUrl;
+// 形は吊り下げ形だけ（着用形 modelUrlWorn はデータに残っていても使わない）
+export async function loadItemModel(item) {
+  const path = item.data.modelUrl;
+  item.wantModel = path;
   item.loadingModel = true;
   try {
     const model = await loadModelRecord(path);
-    if (item.wantShape !== s || !items.includes(item)) return;   // 読み込み中に切り替え・削除された
-    attachModel(item, model); item.shape = worn ? 'worn' : 'hanging'; item.error = false;
+    if (item.wantModel !== path || !items.includes(item)) return;   // 読み込み中に差し替え・削除された
+    attachModel(item, model); item.error = false;
   } catch (e) { item.error = true; console.error(e); }
   finally { item.loadingModel = false; }
   emit('load');
@@ -63,13 +64,6 @@ export function setCollar(id) {
   state.lastCollar = id;
   for (const it of state.selectedItem ? [state.selectedItem] : items) { it.collar = id; applyCollar(it); }   // 未選択なら全ユニフォームに
   emit('panel');
-}
-export function setShape(s) {
-  state.shape = s;
-  deselectItem();
-  emit('shape', s);
-  for (const it of items) setItemShape(it, s);
-  scheduleRebuild();
 }
 export const texCache = new Map();
 export function prepTexture(tex) {
@@ -81,7 +75,7 @@ export function prepTexture(tex) {
 // 1着分の展示アイテムを作る（data は kit-data.js で正規化済みのデータ）
 export function createKitItem(data) {
   const item = createDisplayItem(data.id, { scale: data.display.scale });
-  Object.assign(item, { data, collar: data.display.collar ?? state.lastCollar, materials: [], shape: 'hanging', wantShape: state.shape, placed: false });
+  Object.assign(item, { data, collar: data.display.collar ?? state.lastCollar, materials: [], placed: false });
   loadKitTexture(item);
   return item;
 }
@@ -117,11 +111,11 @@ export function connectStore(store) {
       if (kit.display.texture !== prev.display.texture) loadKitTexture(it); else applyKitLook(it);
       if (kit.display.scale !== prev.display.scale) { it.home.scale = kit.display.scale; if (it.state === 'home') it.state = 'moving'; }
       if (kit.hanger.visible !== prev.hanger.visible) applyHangerVisibility(it);
-      if (kit.modelUrl !== prev.modelUrl || kit.modelUrlWorn !== prev.modelUrlWorn) setItemShape(it, state.shape);
+      if (kit.modelUrl !== prev.modelUrl) loadItemModel(it);
     }
     relayout(kits);
     // 新しく作ったアイテムは、手前から順にモデルを読み込む（同じ GLB は1回だけ取得される）
-    for (const it of [...items].filter(i => !i.kit && !i.loadingModel).sort((a, b) => a.frontIndex - b.frontIndex)) setItemShape(it, state.shape);
+    for (const it of [...items].filter(i => !i.kit && !i.loadingModel).sort((a, b) => a.frontIndex - b.frontIndex)) loadItemModel(it);
     if (type !== 'reset') emit('panel');
   }));
 }

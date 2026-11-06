@@ -62,7 +62,7 @@ async function loadFromSupabase() {
 window.__kit = {
   core, archive, kitStore, sim: core.sim, swing: core.swing, spin: core.spin, items: core.items,
   addKit: raw => kitStore.add(raw), updateKit: (id, patch) => kitStore.update(id, patch), removeKit: id => kitStore.remove(id),
-  setCollar: core.setCollar, setShape: core.setShape, stepSim: core.stepSim, buildSim: core.buildSim,
+  setCollar: core.setCollar, stepSim: core.stepSim, buildSim: core.buildSim,
   selectItem: core.selectItem, flipItem: core.flipItem, deselectItem: core.deselectItem,
   get userSource() { return core.state.userSource; }, get selectedItem() { return core.state.selectedItem; }
 };

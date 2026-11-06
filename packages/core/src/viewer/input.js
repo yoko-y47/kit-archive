@@ -73,7 +73,7 @@ canvas.addEventListener('pointermove', e => {
   if (!press.moved && Math.hypot(e.clientX - press.x, e.clientY - press.y) >= CLICK_SLOP) {
     press.moved = true;
     if (press.hit && !startGrab(press.hit) && ctx.controls.enabled) {
-      // 掴めない（着用形・ハンガー部分など）ときは、押した位置からのカメラ操作として OrbitControls に渡す
+      // 掴めない（ハンガー部分など）ときは、押した位置からのカメラ操作として OrbitControls に渡す
       passToControls = true;
       canvas.dispatchEvent(new PointerEvent('pointerdown', { clientX: press.x, clientY: press.y, pointerId: e.pointerId, pointerType: e.pointerType, button: 0, buttons: 1, isPrimary: true, bubbles: true }));
       passToControls = false;

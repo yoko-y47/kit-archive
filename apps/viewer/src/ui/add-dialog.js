@@ -83,7 +83,8 @@ export function initAddDialog(store) {
     }
     if (!kitStore.canAdd) { showNotice(addError, '保存先がないため登録できません'); return; }
     // 同じシーズン・同じ種別があれば、警告を出して確認してから登録する（重複登録は許可。名前に番号を付けて区別する）
-    const same = findSameSlot(kitStore.list(), s.year, type), key = [s.year, type].join('|');
+    // 「2026-27」と「2026-27 UCL」は別のシーズンとして扱う
+    const same = findSameSlot(kitStore.list(), s.year, type).filter(k => k.season === s.season), key = [s.season, type].join('|');
     const name = `${s.season} ${type}` + (same.length ? ` (${same.length + 1})` : '');
     if (same.length && pending.dupKey !== key) {
       pending.dupKey = key;
